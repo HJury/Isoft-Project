@@ -19,7 +19,7 @@
 
   }
     public function InDaUsuario($Nombres, $Apellido, $Cedula, $Email, $Telefono, $Contraseña){
-      $Tipo = "CLiente";
+      $Tipo = "Cliente";
     
       $EnlanceBD = mysql_connect(localhost, root, losimepeenelcadelavi) or die("No se conecta a la base de datos");
       mysql_select_db(isoft, $EnlanceBD) or die("No se puede seleccionar la BD");
@@ -29,21 +29,20 @@
 
 
   }
-  public function verificarSesion($Perfil){
-  	 $boo = True;
+  public function verificarSesion($Email, $Contraseña){
   	mysql_connect('localhost','root','losimepeenelcadelavi') or die("Error al conectar " . mysql_error());
-	mysql_select_db('isoft') or die ("Error al seleccionar la Base de datos: " . mysql_error()); //Conexión a la base de datos
+	   mysql_select_db('isoft') or die ("Error al seleccionar la Base de datos: " . mysql_error()); //Conexión a la base de datos
 
-	$result = mysql_query("SELECT * from usuarios where Email='" . $Perfil->getEmail() . "'");
+	$result = mysql_query("SELECT * from usuarios where Email='" . $Email . "'");
 
 	if($row = mysql_fetch_array($result)){
-	if($row['Contraseña'] == $Perfil->getContraseña()) {
+	if($row['Contraseña'] == $Contraseña) {
 		session_start();
 
-		return $row; 
+		return true; 
 	}else{
-		$boo = False;
-		return $boo;  //header("Location: contenido.php");
+		
+		return false;  //header("Location: contenido.php");
 		  
 	}
 
