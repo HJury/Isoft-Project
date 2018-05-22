@@ -17,8 +17,28 @@
 		<meta content="stuff, to, help, search, engines, not" name="keywords">
 		<meta content="What this page is about." name="description">
 		<meta content="Display Webcam Stream" name="title">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+		$(document).ready(function(){
+			$("#enviar").click(function(){
+		
+				var nombre = $("#Nombres").val();
+				var apellido = $("#Apellidos").val();
+				var cedula = $("#Cedula").val();
+				var Telefono = $("#Telefono").val();
+				var email = $("#Email").val();
+				var pass = $("#Contraseña").val();
+
+				$.post("Controlador.php",{Nom:nombre, Ape:apellido, Ced:cedula, Ema:email, Tel:Telefono, Cont:pass}, function(datos){
+					$("#resultado").html(datos);
+				});
 
 
+			});
+		});
+
+
+	</script>
 		
 
 
@@ -62,26 +82,27 @@
 								    <h4>Tu gran experiencia está a punto de comenzar</h4>
 								   
 								    <fieldset>
-								      <input placeholder="Nombres" type="text" name="Nom" tabindex="1" required autofocus>
+								      <input placeholder="Nombres" id ="Nombres" type="text" name="Nom" tabindex="1" required autofocus>
 								    </fieldset>
 								    <fieldset>
-								      <input placeholder="Apellidos" type="text" name="Ape" tabindex="2" required>
+								      <input placeholder="Apellidos" id ="Apellidos" type="text" name="Ape" tabindex="2" required>
 								    </fieldset>
 								    <fieldset>
-								      <input placeholder="Cedula" type="text" name="Ced" tabindex="3" required>
+								      <input placeholder="Cedula" id ="Cedula" type="text" name="Ced" tabindex="3" required>
 								    </fieldset>
 								     <fieldset>
-								      <input placeholder="Telefono" type="text" name="Tel" tabindex="4" required>
+								      <input placeholder="Telefono" id ="Telefono" type="text" name="Tel" tabindex="4" required>
 								    </fieldset>
 								    <fieldset>
-								      <input placeholder="Email" type="Email" name="Ema" tabindex="5" required>
+								      <input placeholder="Email"  id = "Email" type="Email" name="Ema" tabindex="5" required>
 								    </fieldset>
 								     <fieldset>
-								      <input placeholder="Contraseña" type="password" name="Cont" tabindex="6" required>
+								      <input placeholder="Contraseña" id = "Contraseña" type="password" name="Cont" tabindex="6" required>
 								    </fieldset>	
 								    <fieldset>
-								      <button name="Enviar" type="submit" id="contact-submit" data-submit="...Sending">Enviar</button>
+								      <input type="submit" name="enviar" value="Enviar" id="enviar">
 								    </fieldset>
+								    <textarea id="resultado" rows="4" cols="50	"></textarea>
 								 	<!--</form>--> 
 								 	
 								</div>

@@ -18,13 +18,14 @@
 
 
 		<script>
+
 		$(document).ready(function(){
 			$("#enviar").click(function(){
 
 				var email_usuario = $("#Email").val();
 				var pass_usuario = $("#Contraseña").val();
 
-				$.post("Validar.php",{Ema:email_usuario, Cont:pass_usuario}, function(datos){
+				$.post("Controlador.php",{Ema:email_usuario, Cont:pass_usuario}, function(datos){
 					$("#resultado").html(datos);
 				});
 

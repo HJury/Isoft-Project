@@ -1,6 +1,7 @@
 <?php
- include 'Perfil';
-public class Persistencia{
+
+ 
+ class Persistencia{
 
 	public function __construct(){ 
         } 
@@ -17,12 +18,19 @@ public class Persistencia{
   public function guardarPedido($Pedido){
 
   }
-  public function buscarPedido($id){
+    public function InDaUsuario($Nombres, $Apellido, $Cedula, $Email, $Telefono, $Contraseña){
+      $Tipo = "CLiente";
+    
+      $EnlanceBD = mysql_connect(localhost, root, losimepeenelcadelavi) or die("No se conecta a la base de datos");
+      mysql_select_db(isoft, $EnlanceBD) or die("No se puede seleccionar la BD");
 
-  	return $Pedido;
+      mysql_query("INSERT INTO usuarios VALUES('$Nombres', '$Apellido', '$Cedula', '$Contraseña', '$Email', '$Telefono', '$Tipo') ");
+     return true;
+
+
   }
   public function verificarSesion($Perfil){
-  	private $boo = True;
+  	 $boo = True;
   	mysql_connect('localhost','root','losimepeenelcadelavi') or die("Error al conectar " . mysql_error());
 	mysql_select_db('isoft') or die ("Error al seleccionar la Base de datos: " . mysql_error()); //Conexión a la base de datos
 
@@ -36,13 +44,12 @@ public class Persistencia{
 	}else{
 		$boo = False;
 		return $boo;  //header("Location: contenido.php");
-		exit();
+		  
 	}
 
   }
-  public function buscarPedido($Pedido){
+} 
 
-  }
 }
  
  
