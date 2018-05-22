@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tutoriales AJAX</title>
+	<meta charset="UTF8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			$("#enviar").click(function(){
+
+				var nombre_usuario = $("#nombre").val();
+				var email_usuario = $("#email").val();
+				var pass_usuario = $("#password").val();
+
+				$.post("pru.php",  function(datos){
+					$("#resultado").html(datos);
+				});
+
+			});
+		});
+
+
+	</script>
+
+	<style type="text/css">
+		body{
+			padding: 0;
+			margin: 0;
+			color: white;
+		}
+
+		#caja{
+			background: gray;
+			text-align: center;
+			padding: 20px;
+			width: 500px;
+			height: 400px;
+			margin: 0 auto;
+		}
+
+		#resultado{
+			color: white;
+			font-size: 24px;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<div id="caja">
+		<h2>Registro de usuarios</h2>
+		<br />
+		<label for="nombre">Nombre</label>
+		<br />
+		<input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre">
+		<br />
+		<label for="email">Email</label>
+		<br />
+		<input type="email" name="email" id="email" placeholder="Ingresa tu email">
+		<br />
+		<label for="contraseña">Contraseña</label>
+		<br />
+		<input type="password" name="pass" id="password" placeholder="Ingresa tu contraseña">
+		<br />
+		<br />
+		<input type="submit" name="enviar" value="Enviar" id="enviar">
+		<div id="resultado"></div>
+	</div>
+
+</body>
+</html>

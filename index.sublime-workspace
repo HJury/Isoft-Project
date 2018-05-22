@@ -1,0 +1,337 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pass",
+				"pass_usuario"
+			],
+			[
+				"Ema",
+				"Email"
+			],
+			[
+				"json_",
+				"json_encode"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"Perci",
+				"Persistencia"
+			],
+			[
+				"cont",
+				"contraseña"
+			],
+			[
+				"Em",
+				"Email"
+			],
+			[
+				"print",
+				"printf"
+			],
+			[
+				"Al",
+				"alumno"
+			],
+			[
+				"al",
+				"alumno"
+			],
+			[
+				"Ros",
+				"Rostro"
+			],
+			[
+				"Co",
+				"Codigo"
+			],
+			[
+				"Nom",
+				"Nombres"
+			],
+			[
+				"mys",
+				"mysql_query"
+			],
+			[
+				"my",
+				"mysql_connect"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"di",
+				"div\tTag"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/AppServ/www/isoft/assets/css/main.css",
+		"/C/AppServ/www/isoft/Logica/Perfil.php",
+		"/C/AppServ/www/isoft/Logica/Administrador.php",
+		"/C/AppServ/www/isoft/Logica/Persona.php",
+		"/C/AppServ/www/isoft/assets/css/Login.css",
+		"/C/AppServ/www/Work In Progress/assets/css/Login.css",
+		"/C/Users/Usuario/Desktop/ajax.html",
+		"/C/AppServ/www/isoft/pru.php",
+		"/C/AppServ/www/isoft/prueba.html",
+		"/C/AppServ/www/isoft/pru",
+		"/C/AppServ/www/isoft/app.js",
+		"/C/AppServ/www/isoft/style.css",
+		"/C/AppServ/www/Work In Progress/assets/css/ie9.css",
+		"/C/AppServ/www/Work In Progress/assets/css/ie8.css",
+		"/C/AppServ/www/isoft/Logica/app.js",
+		"/C/AppServ/www/isoft/assets/js/main.js",
+		"/C/AppServ/www/isoft/assets/js/ie/html5shiv.js",
+		"/C/AppServ/www/isoft/Logica/Fachada",
+		"/C/AppServ/www/isoft/Logica/Perfil",
+		"/C/AppServ/www/isoft/Validar.php",
+		"/C/AppServ/www/isoft/Sesion.html",
+		"/C/AppServ/www/isoft/ValidarE.php",
+		"/C/AppServ/www/isoft/validar.php",
+		"/C/AppServ/www/phpMyAdmin/conectaBD.php",
+		"/C/AppServ/www/Work In Progress/Conecta.php",
+		"/C/AppServ/www/Work In Progress/conectaBD.php",
+		"/C/AppServ/www/Work In Progress/index.html",
+		"/C/AppServ/www/Work In Progress/ProcesarDatos.php",
+		"/C/AppServ/www/Work In Progress/Sesion.html",
+		"/C/AppServ/www/Work In Progress/Registrarse.html",
+		"/C/AppServ/www/Work In Progress/assets/css/font-awesome.min.css",
+		"/C/AppServ/www/phpMyAdmin/setup/frames/config.inc.php",
+		"/C/AppServ/www/phpMyAdmin/test/test_data/config.inc.php",
+		"/C/Program Files (x86)/Steam/steamapps/common/dota 2 beta/game/dota/cfg/video.txt",
+		"/C/Games/The Witcher 3 Wild Hunt/ReadMe!.txt",
+		"/D/Games/Crear red.txt",
+		"/C/Users/Usuario/Documents/Dragon quest.txt",
+		"/C/Users/Usuario/Desktop/estudio.txt",
+		"/C/Users/Usuario/Downloads/holi.txt",
+		"/D/Blocs/Steam movile.txt",
+		"/D/Blocs/pinvalida.txt",
+		"/D/Blocs/Frases.txt",
+		"/D/Blocs/clave steam.txt",
+		"/C/Users/Usuario/Desktop/Juegos a estar atento.txt",
+		"/C/Games/The Witcher 3 Wild Hunt/mods/modImprovedParticleSystems/README.txt",
+		"/C/Games/The Witcher 3 Wild Hunt/mods/modSetCrownsMultiplier12/content/scripts/game/r4Game.ws",
+		"/C/Games/Nexus Mod Manager/Witcher3/Mods/ReadMe/Temp/info.txt",
+		"/C/Games/The Witcher 3 Wild Hunt/mods/modSetCrownsMultiplier12/info.txt",
+		"/C/Users/Usuario/Documents/Rafa.txt",
+		"/C/Users/Usuario/Documents/costos 2018-1.txt",
+		"/C/GOG Games/Divinity - Original Sin 2/Data/Localization/language.lsx",
+		"/C/Users/Usuario/Documents/Toma papu.txt",
+		"/C/Users/Usuario/Documents/little.txt",
+		"/C/Users/Usuario/Downloads/Señalizacion.txt",
+		"/C/Users/Usuario/Downloads/links.txt",
+		"/D/Blocs/leer.txt",
+		"/D/Blocs/Computador 2017-2.txt",
+		"/D/Blocs/Marri.txt",
+		"/C/Users/Usuario/Desktop/Tiempo de hacer magia.txt",
+		"/C/Users/Usuario/Desktop/10Base2",
+		"/C/Users/Usuario/Desktop/10Base5",
+		"/C/Users/Usuario/Desktop/Escritooriio/Escritorio/Libros/Ingles/Vacaciones.txt",
+		"/D/Games/Bloodstained.Ritual.of.the.Night.PC/Bloodstained.Ritual.of.the.Night.PC_recovered/Bloodstained.Ritual.of.the.Night.PC/Cómo instalar Instrucciones [Spain]/Cómo instalar Instrucciones.txt",
+		"/D/Games/SteamWorld.Dig.2.PC/SteamWorld.Dig.2.PC_recovered/SteamWorld.Dig.2.PC/How To Install [Instructions].txt",
+		"/C/GOG Games/Hollow Knight/EULA.txt",
+		"/D/Games/Hollow.Knight.Hidden.Dreams-RELOADED[rarbg]/RARBG.txt",
+		"/C/Users/Usuario/Desktop/Gastos.txt",
+		"/C/Users/Usuario/Desktop/Clave Nvidia.txt",
+		"/C/Users/Usuario/Documents/equipos/^^Información sobre los equipos^^.txt",
+		"/C/Users/Usuario/Desktop/Escritooriio/estudio.txt",
+		"/C/Users/Usuario/Desktop/Escritooriio/Nuevo documento de texto.txt",
+		"/C/AppServ/www/Work In Beta/assets/css/Login.css",
+		"/C/AppServ/www/Esperanzas/revisar.html",
+		"/C/AppServ/www/Work In Beta/Registrarse.html",
+		"/C/AppServ/www/Work In Beta/Acerca.html",
+		"/C/AppServ/www/Work In Beta/ProcesarDatos.php",
+		"/C/Users/Usuario/Desktop/Ultimo/Work In Beta/Registrarse.html",
+		"/C/AppServ/www/Work In Beta/index.html",
+		"/C/Users/Usuario/Desktop/Ultimo/Work In Beta/ProcesarDatos.php",
+		"/C/Users/Usuario/Desktop/Ultimo/Work In Beta/Acerca.html",
+		"/C/AppServ/www/no jodan mas/index.php",
+		"/C/AppServ/www/index.php",
+		"/C/AppServ/www/Face_Detector.php",
+		"/C/AppServ/www/detection.dat",
+		"/C/AppServ/www/Esperanzas/revisar.php",
+		"/C/AppServ/www/Work In Progress/assets/css/main.css",
+		"/C/AppServ/www/Work In Progress/Acerca.html",
+		"/C/AppServ/www/Work In Progress/ProcesarDatos",
+		"/C/AppServ/www/Work In Progress/Nuevo documento de texto.txt",
+		"/C/AppServ/www/Work In Progress/Conecta.txt",
+		"/C/Users/Usuario/Downloads/conectaBD.php",
+		"/C/Users/Usuario/Desktop/ISI/Regresar a Lista.html",
+		"/C/AppServ/www/Work In Progress/Iniciar_Sesion.html",
+		"/C/Users/Usuario/Desktop/Work In Progress/Sesion.html",
+		"/C/Users/Usuario/Desktop/Work In Progress/assets/css/main.css",
+		"/C/AppServ/www/oshiete.html",
+		"/C/Users/Usuario/Desktop/Work In Progress/index.html",
+		"/C/Users/Usuario/Desktop/Work In Progress/Registrarse.html",
+		"/C/AppServ/www/camara.html",
+		"/C/Users/Usuario/Desktop/Work In Progress/Iniciar_Sesion.html",
+		"/C/Users/Usuario/Desktop/Work In Progress/assets/css/Login.css",
+		"/C/Users/Usuario/Desktop/Work In Progress/Regresar a Lista.html",
+		"/C/AppServ/www/layout-master/js/libs/jpeg_camera/jpeg_camera.min.js",
+		"/C/AppServ/www/layout-master/js/libs/jpeg_camera/jpeg_camera_with_dependencies.min.js",
+		"/C/Users/Usuario/Downloads/descarga (1)"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "index.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
