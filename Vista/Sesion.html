@@ -15,7 +15,7 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
 
 		<script>
 
@@ -27,7 +27,19 @@
 				var acc = "Ses";
 
 				$.post("Controlador.php",{Ema:email_usuario, Cont:pass_usuario,Acc: acc}, function(datos){
-					$("#resultado").html(datos);
+					//var json = JSON.parse(datos);
+					 $("#resultado").html(datos);//text(json.autos[2].marca[2].submarca);	
+
+					//if(datos == 0){
+						
+
+					//	//location.href = "Acerca.html";
+					//}else{
+					//	$("#resultado").html(datos);
+					//}
+
+
+					//
 				});
 
 

@@ -37,7 +37,11 @@
 
 	if($row = mysql_fetch_array($result)){
 	if($row['Contraseña'] == $Contraseña) {
-		session_start();
+	   $Cedula = $row->Cedula;
+     $Nombre = $row->Nombre;
+
+     $array["Cedula"] = "$Cedula";
+     $array["Nombre"] = " $avarage";
 
 		return true; 
 	}else{
