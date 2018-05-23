@@ -27,9 +27,11 @@
 				var acc = "Ses";
 
 				$.post("Controlador.php",{Ema:email_usuario, Cont:pass_usuario,Acc: acc}, function(datos){
-					//var json = JSON.parse(datos);
-					 $("#resultado").html(datos);//text(json.autos[2].marca[2].submarca);	
-
+					 json = JSON.parse(datos);
+					 var Email = json.Email;
+					 var Cedula = json.Cedula;
+					// $("#resultado").text(json.Cedula);	
+					 location.href = "Acerca.html?Cedula="+Cedula+ "&Email="+Email;
 					//if(datos == 0){
 						
 

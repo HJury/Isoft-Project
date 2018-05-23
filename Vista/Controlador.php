@@ -26,7 +26,9 @@ include '../Logica/Fachada.php';
 
 	if($Acc == "Ses"){
 		$fac = new Fachada();
-		if($fac->InDaSesion($Email, $Contraseña)){
+		$row = $fac->InDaSesion($Email, $Contraseña);
+		echo json_encode($row);
+		//if($row != '0'){
 
 			//$array=array(
 				// "empleados"=>array(
@@ -46,10 +48,10 @@ include '../Logica/Fachada.php';
 				// )
 //
 				//);
-				echo 'Perro Perro';
-		}else{
-				echo "Nada de poder Hermano";
-		}
+				
+		//}else{
+			//	echo "Nada de poder Hermaano";
+		//}
 	}
 ?>
 

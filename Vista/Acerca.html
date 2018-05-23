@@ -17,13 +17,39 @@
 		<meta content="stuff, to, help, search, engines, not" name="keywords">
 		<meta content="What this page is about." name="description">
 		<meta content="Display Webcam Stream" name="title">
+
+
+	<script>
+		
+		function getUrlVars(){   
+		    var vars = [], hash;
+		    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		    for(var i = 0; i < hashes.length; i++){
+		        hash = hashes[i].split('=');
+		        vars.push(hash[0]);
+		        vars[hash[0]] = hash[1];
+		    }
+		    return vars;
+		}
+
+		//Calling function gerUrlVars to get value from url
+		function volar(){
+		var Cedula= getUrlVars()["Cedula"];
+		var Nombres= getUrlVars()["Nombres"];
+
+		document.getElementById("sirve").innerHTML = Nombres; 
+	    }
+
+	</script>
+
 	</head>
-	<body>
+	<body onload="volar();">
+
 
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
 				<header id= "header">
-				<h1><a>Nombre de usuario </a></h1>
+				<h1><a id = "sirve"></a></h1>
 						<nav id="nav">
 								<ul>
 									
