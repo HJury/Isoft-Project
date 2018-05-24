@@ -1,0 +1,3 @@
+1. Convertir retorno de registro en comparaciones como retorno de sesion.
+2. Terminar la interfaz de Usuario con tablas funcionales.
+3. Verificar email y cedulas para que no puedan repetirse.
