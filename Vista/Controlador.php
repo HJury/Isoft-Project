@@ -7,20 +7,22 @@
 	$Telefono = $_POST['Tel'];
 	$Contraseña = $_POST['Cont'];
 	$Acc =$_POST['Acc'];
-include '../Logica/Fachada.php';
+include '../Logica/Administrador.php';
 
 	if($Acc == "Reg"){
 		if(!empty($_POST['Nom'])){
 
-				$fac = new Fachada();
+				$Adm = new Administrador();
 
-				if($fac->InDaUsuario($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña)){
-						header('Location: prueba.html');
+				if($Adm->InDaUsuario($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña)){
+						echo "We can ";
 				}else{
 						echo "Nada de poder Hermano";
 				}
 
-				}
+		}else{
+					echo "Nadaaa";
+		}
 
 	}
 

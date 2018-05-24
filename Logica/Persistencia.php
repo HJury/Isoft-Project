@@ -25,7 +25,7 @@
       mysql_select_db(isoft, $EnlanceBD) or die("No se puede seleccionar la BD");
 
       mysql_query("INSERT INTO usuarios VALUES('$Nombres', '$Apellido', '$Cedula', '$Contraseña', '$Email', '$Telefono', '$Tipo') ");
-     return true;
+    echo "rojo";
 
 
   }

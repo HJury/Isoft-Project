@@ -1,13 +1,36 @@
 <?php
  include 'Persona.php'; 
- include 'Persistencia.php';
- include 'Perfil.php'; 
-public class Administrado extends Persona{
+ include 'Fachada.php'; 
+ class Administrador extends Persona{
  			//Atributos
-		public function __construct($cont,$email){ 
+		public function __construct($cont,$Email){ 
 		 $contraseña = $cont; 
-		 this->$email =$email; 
+		 $email =$Email; 
         } 
+
+    public function InDaUsuario($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña){
+      $Facha = new Fachada();
+       if($Facha->InDaUsuario($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña)){
+                 return true;
+        }else{
+            return false;
+        }
+    } 
+
+       public function InDaSesion($Email, $Contraseña){
+                $Persi = new Persistencia();
+
+                 $row = $Persi->verificarSesion($Email, $Contraseña);
+                 return $row;  //
+               // if($row == '0'){
+               //  
+               // }else{
+                //        return false;
+                //}
+
+
+        }
+
 
 
 }

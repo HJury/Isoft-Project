@@ -28,8 +28,8 @@
 				var Telefono = $("#Telefono").val();
 				var email = $("#Email").val();
 				var pass = $("#Contraseña").val();
-
-				$.post("Controlador.php",{Nom:nombre, Ape:apellido, Ced:cedula, Ema:email, Tel:Telefono, Cont:pass}, function(datos){
+				var acc = "Reg"; 
+				$.post("Controlador.php",{Nom:nombre, Ape:apellido, Ced:cedula, Ema:email, Tel:Telefono, Cont:pass,Acc:acc}, function(datos){
 					$("#resultado").html(datos);
 				});
 

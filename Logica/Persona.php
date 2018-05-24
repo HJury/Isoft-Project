@@ -8,8 +8,8 @@ abstract class Persona{
   private $telefono; 			//Atributos
 
 
-  abstract public function iniciarSesion($Perfil);
-  abstract public function registrarse($Nombres,$Apellidos,$Cedula,$Perfil,$Telefono);
+  abstract public function InDaSesion($Email, $Contraseña);
+  abstract public function InDaUsuario($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña);
 }
  
 
