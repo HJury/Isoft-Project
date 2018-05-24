@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Centinela Virtual</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<meta charset="utf-8">
+		<meta content="stuff, to, help, search, engines, not" name="keywords">
+		<meta content="What this page is about." name="description">
+		<meta content="Display Webcam Stream" name="title">
+
+
+	<script>
+		
+		function getUrlVars(){   
+		    var vars = [], hash;
+		    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		    for(var i = 0; i < hashes.length; i++){
+		        hash = hashes[i].split('=');
+		        vars.push(hash[0]);
+		        vars[hash[0]] = hash[1];
+		    }
+		    return vars;
+		}
+
+		//Calling function gerUrlVars to get value from url
+		function volar(){
+		var Cedula= getUrlVars()["Cedula"];
+		var Nombres= getUrlVars()["Nombres"];
+
+		document.getElementById("sirve").innerHTML = Nombres; 
+	    }
+
+	</script>
+
+	</head>
+	<body onload="volar();">
+
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+				<header id= "header">
+				<h1><a id = "sirve"></a></h1>
+						<nav id="nav">
+								<ul>
+									
+									<li class="special">
+										<a href="#menu" class="menuToggle"><span>Menu</span></a>
+
+										<div id="menu">
+											<ul>
+												<li><a href="index.html">Home</a></li>
+												<li><a id = "Gestionar Horario"> Gestionar Horario</a></li>
+												<li><a href="Sesion.html">Ver Estado De Carga</a></li>
+												<li><a href="Acerca.html">Cerrar Sesión</a></li>
+											</ul>
+										</div>
+									</li>
+
+								</ul>
+						</nav>
+					
+				</header>
+				<!-- Header -->
+
+
+				<!-- Main -->
+					<article id="main">
+						
+						<section class="wrapper style5">
+							<div class="inner">
+
+								<section>
+									<table >
+										  <tr>
+										    <th>Hora</th>
+										    <th>Lunes</th>
+										    <th>Martes</th>
+										    <th>Miercoles</th>
+										    <th>Jueves</th>
+										    <th>Viernes</th>
+										    <th>Sabado</th>
+										  </tr>
+										  <tr>
+										    <td>8am</td>
+										    <td ><button onclick="Activar()">Diponible</button></td>
+										    <td>muy</td>
+										     <td>BIEN</td>
+										      <td>y</td>
+										       <td>a</td>
+										        <td>ti</td>
+										  </tr>
+										  <tr>
+										    <td>February</td>
+										    <td>$80</td>
+										    <td>bien</td>
+										    <td>bien</td>
+										    <td>gracias</td>
+										    <td>nos</td>
+										    <td>vemos</td>
+										  </tr>
+										</table>
+
+
+
+									<blockquote>
+									Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.
+									</blockquote>
+									</section>
+								</div>
+							</section>
+						</article>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

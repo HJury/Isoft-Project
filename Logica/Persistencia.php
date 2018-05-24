@@ -37,13 +37,13 @@
 
 	if($row = mysql_fetch_array($result)){
 	if($row['Contraseña'] == $Contraseña) {
-	   $Cedula = $row->Cedula;
-     $Nombre = $row->Nombre;
+	   $Cedula = $row['Cedula'];
+     $Nombres = $row['Nombres'];
 
      $array["Cedula"] = "$Cedula";
-     $array["Nombre"] = " $avarage";
+     $array["Nombres"] = " $Nombres";
 
-		return true; 
+		return $array; 
 	}else{
 		
 		return false;  //header("Location: contenido.php");

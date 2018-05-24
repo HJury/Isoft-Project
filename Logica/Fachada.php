@@ -20,11 +20,14 @@ include 'Persistencia.php';
 
          public function InDaSesion($Email, $Contraseña){
                 $Persi = new Persistencia();
-                if($Persi->InDaUsuario($Nombres, $Apellido, $Cedula, $Email, $Telefono, $Contraseña)){
-                        return true;
-                }else{
-                        return false;
-                }
+
+                 $row = $Persi->verificarSesion($Email, $Contraseña);
+                 return $row;  //
+               // if($row == '0'){
+               //  
+               // }else{
+                //        return false;
+                //}
 
 
         }

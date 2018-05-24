@@ -9,18 +9,7 @@ public class Administrado extends Persona{
 		 this->$email =$email; 
         } 
 
-  public function inDaSesion($Perfil){
-  	 private $Perci = new Persistencia;
-  	if($Perci->iniciarSesion($Perfil)){
-  		
-  	}else{
 
-  	}
-
-  }
-  public function registrarse($Nombres,$Apellidos,$Cedula,$Perfil,$Telefono,$ClaveA){
-
-  }
 }
  
  
