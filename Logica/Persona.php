@@ -1,16 +1,15 @@
 <?php
- 
+  include_once 'Perfil.php';
 abstract class Persona{
   private $nombres; 
   private $cedula;
-  private $contraseña;   //Atributos
-  private $email;
+  private $Perfil;   //Pefil
   private $apellidos;
   private $telefono; 			//Atributos
 
 
   abstract public function inDatos();
-  abstract public function inDaSes($Email, $Contraseña);
+  abstract public function inDaSes($Perfil);
 }
  
 

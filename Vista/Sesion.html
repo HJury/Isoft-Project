@@ -28,11 +28,17 @@
 
 				$.post("Controlador.php",{Ema:email_usuario, Cont:pass_usuario,Acc: acc}, function(datos){  
 					 json = JSON.parse(datos);
-					 var Email = json.Email;
+					 var Email = json.Nombres;
 					 var Cedula = json.Cedula;
+					 var Tipo = json.Tipo;
 					// $("#resultado").text(json.Cedula);	
+					if(Tipo == "Administrador"){
 					 location.href = "Cliente.html?Cedula="+Cedula+ "&Email="+Email;
+
+					}else{ 
+						$("#resultado").text("Dormamu");
 					 //location.href = "Admin.html?Cedula="+Cedula+ "&Email="+Email;
+					}
 					//if(datos == 0){
 						
 

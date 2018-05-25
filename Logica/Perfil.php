@@ -1,22 +1,32 @@
 <?php
 
 
-	public class Perfil{
+	 class Perfil{
 	private $contraseña;
 	private $email;
 
 	public function __construct($cont,$email){ 
-		 $contraseña = $cont; 
-		 this->$email =$email; 
+		 $this->contraseña = $cont; 
+		 $this->email =$email; 
         } 
+    
 
     public function getEmail(){
-    	return this->$email;
+    	return $this->email;
     }
 
     public function getContraseña(){
-    	return this->$contraseña;
+    	return $this->contraseña;
     }
+
+      public function setEmail($Email){
+         $this->email = $Email;
+    }
+
+    public function setContraseña($Contraseña){
+         $this->contraseña = $Contraseña; 
+    }
+
 
 } 
 ?>

@@ -8,8 +8,9 @@
 	$Contraseña = $_POST['Cont'];
 	$Acc =$_POST['Acc'];
 	$Tipo = $_POST['Tip'];
-include '../Logica/Administrador.php';
-include '../Logica/Cliente.php';
+include_once '../Logica/Administrador.php';
+include_once '../Logica/Cliente.php';
+include_once '../Logica/Perfil.php';
  
 	if($Acc == "Reg"){
 		if($Tipo == "Adm"){ // Se verifica si los datos ingresados medidante la interfaz son de un usuario tipo adminitrador. 
@@ -44,8 +45,10 @@ include '../Logica/Cliente.php';
 	}
 
 	if($Acc == "Ses"){
-		$fac = new Administrador();
-		$row = $fac->InDaSesion($Email, $Contraseña);
+
+		$adm = new Administrador($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña);
+		$Perfil = new Perfil($Contraseña,$Email);
+		$row = $adm->InDaSes($Perfil);
 		echo json_encode($row);
 		//if($row != '0'){
 

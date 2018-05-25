@@ -42,19 +42,22 @@
 
   }
 
-  public function verificarSesion($Email, $Contraseña){
+  public function verificarSesion($Perfil){
+    $Email = $Perfil->getEmail();
   	mysql_connect('localhost','root','losimepeenelcadelavi') or die("Error al conectar " . mysql_error());
 	   mysql_select_db('isoft') or die ("Error al seleccionar la Base de datos: " . mysql_error()); //Conexión a la base de datos
 
-	$result = mysql_query("SELECT * from usuarios where Email='" . $Email . "'");
+	$result = mysql_query("SELECT * from usuarios where Email='" . $Perfil->getEmail() . "'");
 
 	if($row = mysql_fetch_array($result)){
-	if($row['Contraseña'] == $Contraseña) {
+	if($row['Contraseña'] == $Perfil->getContraseña()) {
 	   $Cedula = $row['Cedula'];
      $Nombres = $row['Nombres'];
+     $Tipo = $row['Tipo'];
 
      $array["Cedula"] = "$Cedula";
-     $array["Nombres"] = " $Nombres";
+     $array["Nombres"] = "$Nombres";
+     $array["Tipo"]  = "$Tipo";
 
 		return $array; 
 	}else{

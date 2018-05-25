@@ -30,15 +30,13 @@ include_once 'Persistencia.php';
         }
 
 
-         public function InDaSesion($Email, $Contraseña){
+         public function inDaSes($Perfil){
                 $Persi = new Persistencia();
-                 $row = $Persi->verificarSesion($Email, $Contraseña);
-                 return $row;  //
-               // if($row == '0'){
-               //  
-               // }else{
-                //        return false;
-                //}
+                $row = $Persi->verificarSesion($Perfil);
+                 return $row;  
+
+                
+             
 
 
         }
