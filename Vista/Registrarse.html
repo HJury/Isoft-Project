@@ -29,9 +29,27 @@
 				var email = $("#Email").val();
 				var pass = $("#Contraseña").val();
 				var acc = "Reg";
-				$.post("Controlador.php",{Nom:nombre, Ape:apellido, Ced:cedula, Ema:email, Tel:Telefono, Cont:pass, Acc: acc}, function(datos){
-					$("#resultado").html(datos);
-				});
+				var tipo; 
+				var Lla = $('#llaveAdmi').val(); 
+				if(Lla != ""){
+					if(parseInt(Lla) == 1234){
+						tipo = "Adm"; 
+						    $.post("Controlador.php",{Nom:nombre, Ape:apellido, Ced:cedula, Ema:email, Tel:Telefono, Cont:pass, Acc: acc, Tip:tipo}, function(datos){
+							  $("#resultado").html(datos);
+						    });
+				    }else{
+				    	$("#resultado").html("Por favor verifique que la llave de administrador este correctamente digitada o deje el campo vacio si pretende registrarse como cliente");
+				    }
+
+
+			    }else{
+			    		tipo = "Cli";
+				    	$.post("Controlador.php",{Nom:nombre, Ape:apellido, Ced:cedula, Ema:email, Tel:Telefono, Cont:pass, Acc: acc, Tip:tipo}, function(datos){
+							  $("#resultado").html(datos);
+
+						    });
+
+				    }
 
 
 			});

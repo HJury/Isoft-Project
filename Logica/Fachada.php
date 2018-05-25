@@ -1,14 +1,16 @@
 <?php
-include 'Persistencia.php'; 
+include_once 'Persistencia.php'; 
 
  class Fachada{
+
+     
 
 	public function __construct(){ 
         } 
 
-        public function InDaUsuario($Nombres, $Apellido, $Cedula, $Email, $Telefono, $Contraseña){
+        public function inDaAdmin($Nombres, $Apellido, $Cedula, $Email, $Telefono, $Contraseña){
         	$Persi = new Persistencia();
-        	if($Persi->InDaUsuario($Nombres, $Apellido, $Cedula, $Email, $Telefono, $Contraseña)){
+        	if($Persi->inDaAdmin($Nombres, $Apellido, $Cedula, $Email, $Telefono, $Contraseña)){
         		return true;
         	}else{
         		return false;
@@ -16,11 +18,20 @@ include 'Persistencia.php';
 
 
         }
+         public function inDaCli($Nombres, $Apellido, $Cedula, $Email, $Telefono, $Contraseña){
+            $Persi = new Persistencia();
+            if($Persi->inDaCli($Nombres, $Apellido, $Cedula, $Email, $Telefono, $Contraseña)){
+                return true;
+            }else{
+                return false;
+            }
+
+
+        }
 
 
          public function InDaSesion($Email, $Contraseña){
                 $Persi = new Persistencia();
-
                  $row = $Persi->verificarSesion($Email, $Contraseña);
                  return $row;  //
                // if($row == '0'){

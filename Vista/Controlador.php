@@ -7,25 +7,44 @@
 	$Telefono = $_POST['Tel'];
 	$Contraseña = $_POST['Cont'];
 	$Acc =$_POST['Acc'];
-include '../Logica/Fachada.php';
-
+	$Tipo = $_POST['Tip'];
+include '../Logica/Administrador.php';
+include '../Logica/Cliente.php';
+ 
 	if($Acc == "Reg"){
+		if($Tipo == "Adm"){ // Se verifica si los datos ingresados medidante la interfaz son de un usuario tipo adminitrador. 
 		if(!empty($_POST['Nom'])){
 
-				$fac = new Fachada();
+				$adm = new Administrador($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña);
 
-				if($fac->InDaUsuario($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña)){
-						header('Location: prueba.html');
-				}else{
-						echo "Nada de poder Hermano";
+						if($adm->inDatos()){
+								echo "Todo bien Todo bien";
+						}else{
+								echo "Nada de poder Hermano";
+						}
+
+				}
+			}
+			if($Tipo == "Cli"){ // Se verifica si los datos ingresados medidante la interfaz son de un usuario tipo cliente. 
+				if(!empty($_POST['Nom'])){
+
+						$cli = new Cliente($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña);
+
+						if($cli->inDatos()){
+								echo "Todo bien Todo bien";
+						}else{
+								echo "Nada de poder Hermano";
+						}
+
 				}
 
-				}
+
+			} 
 
 	}
 
 	if($Acc == "Ses"){
-		$fac = new Fachada();
+		$fac = new Administrador();
 		$row = $fac->InDaSesion($Email, $Contraseña);
 		echo json_encode($row);
 		//if($row != '0'){

@@ -18,7 +18,19 @@
   public function guardarPedido($Pedido){
 
   }
-    public function InDaUsuario($Nombres, $Apellido, $Cedula, $Email, $Telefono, $Contraseña){
+    public function inDaAdmin($Nombres, $Apellido, $Cedula, $Email, $Telefono, $Contraseña){
+      $Tipo = "Administrador";
+    
+      $EnlanceBD = mysql_connect(localhost, root, losimepeenelcadelavi) or die("No se conecta a la base de datos");
+      mysql_select_db(isoft, $EnlanceBD) or die("No se puede seleccionar la BD");
+
+      mysql_query("INSERT INTO usuarios VALUES('$Nombres', '$Apellido', '$Cedula', '$Contraseña', '$Email', '$Telefono', '$Tipo') ");
+     return true;
+
+
+  }
+
+   public function inDaCli($Nombres, $Apellido, $Cedula, $Email, $Telefono, $Contraseña){
       $Tipo = "Cliente";
     
       $EnlanceBD = mysql_connect(localhost, root, losimepeenelcadelavi) or die("No se conecta a la base de datos");
@@ -29,6 +41,7 @@
 
 
   }
+
   public function verificarSesion($Email, $Contraseña){
   	mysql_connect('localhost','root','losimepeenelcadelavi') or die("Error al conectar " . mysql_error());
 	   mysql_select_db('isoft') or die ("Error al seleccionar la Base de datos: " . mysql_error()); //Conexión a la base de datos
