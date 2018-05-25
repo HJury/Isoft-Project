@@ -1,3 +1,4 @@
-1. Convertir retorno de registro en comparaciones como retorno de sesion.
-2. Terminar la interfaz de Usuario con tablas funcionales.
-3. Verificar email y cedulas para que no puedan repetirse.
+1. Convertir retorno de registro en comparaciones como retorno de sesion.(Listo)
+2. Crear tabla, insertar valores separados por comas y lograr desarmarlo en controlador con split.
+3. Terminar la interfaz de Usuario con tablas funcionales.
+4. Verificar email y cedulas para que no puedan repetirse.

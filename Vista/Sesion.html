@@ -25,6 +25,10 @@
 				var email_usuario = $("#Email").val();
 				var pass_usuario = $("#Contraseña").val();
 				var acc = "Ses";
+				if(email_usuario == "" ||
+					pass_usuario == ""){
+					$("#resultado").html("Favor llenar todos los campos");
+				}else{
 
 				$.post("Controlador.php",{Ema:email_usuario, Cont:pass_usuario,Acc: acc}, function(datos){  
 					 json = JSON.parse(datos);
@@ -33,7 +37,7 @@
 					 var Tipo = json.Tipo;
 					// $("#resultado").text(json.Cedula);	
 					if(Tipo == "Administrador"){
-					 location.href = "Cliente.html?Cedula="+Cedula+ "&Email="+Email;
+					 location.href = "Administrador.html?Cedula="+Cedula+ "&Email="+Email;
 
 					}else{ 
 						$("#resultado").text("Dormamu");
@@ -50,7 +54,7 @@
 
 					//
 				});
-
+			}
 
 			});
 		});

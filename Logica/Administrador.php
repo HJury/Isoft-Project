@@ -7,7 +7,7 @@
 		public function __construct($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña){ 
       
      $this->Perfil = new Perfil($Contraseña,$Email);
-		 $this->nombres = $Nombres; 
+	 $this->nombres = $Nombres; 
      $this->cedula = $Cedula;
      $this->apellidos = $Apellidos;
      $this->telefono = $Telefono; 

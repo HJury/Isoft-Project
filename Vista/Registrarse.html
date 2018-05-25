@@ -30,7 +30,16 @@
 				var pass = $("#Contraseña").val();
 				var acc = "Reg";
 				var tipo; 
-				var Lla = $('#llaveAdmi').val(); 
+				var Lla = $('#llaveAdmi').val();
+				if(nombre == "" || 
+					apellido == "" ||
+					cedula == "" ||
+					Telefono == "" ||
+					email == "" ||
+					pass == ""){
+					$("#resultado").html("Favor llenar todos los campos");
+				}else{
+
 				if(Lla != ""){
 					if(parseInt(Lla) == 1234){
 						tipo = "Adm"; 
@@ -51,7 +60,7 @@
 
 				    }
 
-
+				}
 			});
 		});
 
