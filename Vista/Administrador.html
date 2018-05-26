@@ -119,6 +119,22 @@
 			});
 	</script>
 
+	<script>
+		$(document).ready(function(){
+			$("#Aceptar").click(function(){
+				var idMerc = $("#IdM").val();
+				var cedulaP = parseInt($("#CeP").val());
+				var NombreM = $("#NomM").val();
+				var prioridad = $("#select").val();
+				if(idMerc==)
+				console.log(prioridad);
+			$.post("Controlador.php",{Ced:cedulaP,Mer:idMerc,Nom:NombreM,Pri:prioridad}, function(datos){ 
+				$("#resultado").html(datos);
+			});
+		});
+	});		
+	</script>
+
 	<!--Esta funcion se encarga de cambiar el color de las celdas cuando se le da click -->
 	<script >
 
@@ -353,7 +369,7 @@
 										
 									</div>
 								</section>
-							<textarea  id="resultado" rows="4" cols="4"	"></textarea>
+							<!--<textarea  id="resultado" rows="4" cols="4"	"></textarea>-->
 							</div>
 							</section>
 
@@ -370,21 +386,22 @@
 												<div class="container">  
 												  	<div id="contact" >
 												    <fieldset>
-								      					<input placeholder="Id Mercancia" type="text" id="Email" name="IdM" tabindex="1" required>
+								      					<input placeholder="Id Mercancia" type="text" id="IdM" name="IdM" tabindex="1" required>
 								    				</fieldset>
 								     				<fieldset>
-												      	<input placeholder="Cedula Propietario" type="text" id="CedulaP" name="CeP" tabindex="2" required>
+												      	<input placeholder="Cedula Propietario" type="text" id="CeP" name="CeP" tabindex="2" required>
 												    </fieldset>
 												    <fieldset>
-												      	<input placeholder="Nombre Mercancia" type="text" id="NombreM" name="NomM" tabindex="3" required>
+												      	<input placeholder="Nombre Mercancia" type="text" id="NomM" name="NomM" tabindex="3" required>
 												    </fieldset>
-												    	<select>
-														  <option value="Per">Perecedero</option>
-														  <option value="NoPer">No Perecedero</option>
+												    	<select id = "select">
+														  <option value="Perecedero">Perecedero</option>
+														  <option value="No Perecedero">No Perecedero</option>
 														  <option value="Otro">Otro</option>
 														</select>									    
 												    <fieldset>
-												     	<input type="submit" name="Aceptar" value="Enviar" id="enviar">
+												     	<input type="submit" name="Aceptar" value="Enviar" id="Aceptar">
+												     	<textarea  id="resultado" rows="4" cols="4"	"></textarea>
 												    </fieldset>
 												 	</div>
 												</div>

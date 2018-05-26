@@ -9,6 +9,9 @@
 	$Acc =$_POST['Acc'];
 	$Tipo = $_POST['Tip'];
 	$Hor = $_POST['Hor'];
+	$Mer = $_POST['Mer'];
+	$Pri = $_POST['Pri'];
+
 include_once '../Logica/Administrador.php';
 include_once '../Logica/Cliente.php';
 include_once '../Logica/Perfil.php';
@@ -90,6 +93,16 @@ include_once '../Logica/Fachada.php';
 	if($Hor != ""){
 		$adm = new Administrador($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña);
 		if($adm->modHorario($Hor)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+	if($Mer != ""){
+		$adm = new Administrador($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña);
+		if($adm->inMercancia($Cedula,$Mer,$Nombres,$Pri)){
 			return true;
 		}
 		else{

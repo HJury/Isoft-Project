@@ -105,9 +105,17 @@ public function modHorario($Hor){
         return true;
 
         }
+
+
+public function inMercancia($Mer,$Cedula,$Nombres,$Pri){
+      $EnlanceBD = mysql_connect(localhost, root, losimepeenelcadelavi) or die("No se conecta a la base de datos");
+      mysql_select_db(isoft, $EnlanceBD) or die("No se puede seleccionar la BD");
+
+      mysql_query("INSERT INTO mercancia VALUES('$Cedula', '$Mer', '$Nombres', '$Pri') ");
+     return true;
 }
 
-
+}
  
  
 ?>

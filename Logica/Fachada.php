@@ -54,6 +54,16 @@ include_once 'Persistencia.php';
 
          }
 
+          public function inMercancia($Mer,$Cedula,$Nombres,$Pri){
+             $Persi= new Persistencia();
+             if($Persi->inMercancia($Cedula,$Mer,$Nombres,$Pri)){
+                return true;
+             }else{
+                return false;
+             }
+
+         }
+
 
         
 

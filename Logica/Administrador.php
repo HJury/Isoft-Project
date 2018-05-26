@@ -46,9 +46,16 @@
         }else{
             return false;
         }
+    }
 
-        
+    public function inMercancia($Mer,$Cedula,$Nombres,$Pri){
+        $fac = new Fachada();
+        if($fac->inMercancia($Cedula,$Mer,$Nombres,$Pri)){
 
+            return true;
+        }else{
+            return false;
+        }
     }
 
 
