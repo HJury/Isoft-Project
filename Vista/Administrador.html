@@ -42,7 +42,8 @@
 
 		document.getElementById("sirve").innerHTML = Email;
 		$("#tabla").hide();
-		$("#Done").hide(); 
+		$("#Done").hide();
+		$("#main2").hide(); 
 	    }
 
 
@@ -103,8 +104,22 @@
 
 	</script>
 
+	<script>  //Scrip que permite el hacer visible la tabla con los horarios disponibles   	
+	    	$(document).ready(function(){
+			$("#IMer").click(function(){
+            
 
+		     //console.log(Secuencia);
+				//$("#resultado").html(Secuencia);
+				$("#main").hide();
+				$("#main2").show();
 
+				//document.getElementById("enviar").type= 'hidden'; 
+			   });
+			});
+	</script>
+
+	<!--Esta funcion se encarga de cambiar el color de las celdas cuando se le da click -->
 	<script >
 
 		
@@ -136,6 +151,8 @@
 
 	</script>
 
+
+	<!-- Crea la variable horario encargada de guardar el estado del horario en la base de datos-->
 	<script >
 
 		
@@ -177,7 +194,7 @@
 				//document.getElementById("enviar").type= 'hidden'; 
 			   });
     		});
-		});
+		}); //Trae los valores del horario desde la base de datos
 
 
 
@@ -325,6 +342,9 @@
 											<li><a id = "enviar" class="button special">Gestionar Horario</a></li>
 										</ul>
 										<ul class="actions">
+											<li><a  id = "IMer" class="button special">Ingresar Mercancia</a></li>
+										</ul>
+										<ul class="actions">
 											<li><a id = "Vses"  class="button special">Ver Estado De Carga</a></li>
 										</ul>
 										<ul class="actions">
@@ -332,17 +352,45 @@
 										</ul>
 										
 									</div>
-
-
-
-										
 								</section>
-								<textarea  id="resultado" rows="4" cols="4"	"></textarea>
+							<textarea  id="resultado" rows="4" cols="4"	"></textarea>
 							</div>
 							</section>
 
 
 						
+						</article>
+						<article id="main2">
+										<header>
+											<h2>Registrar Mercancia</h2>
+										</header>
+										<section class="wrapper style5" id="banner2">
+											<div class="inner">
+											
+												<div class="container">  
+												  	<div id="contact" >
+												    <fieldset>
+								      					<input placeholder="Id Mercancia" type="text" id="Email" name="IdM" tabindex="1" required>
+								    				</fieldset>
+								     				<fieldset>
+												      	<input placeholder="Cedula Propietario" type="text" id="CedulaP" name="CeP" tabindex="2" required>
+												    </fieldset>
+												    <fieldset>
+												      	<input placeholder="Nombre Mercancia" type="text" id="NombreM" name="NomM" tabindex="3" required>
+												    </fieldset>
+												    	<select>
+														  <option value="Per">Perecedero</option>
+														  <option value="NoPer">No Perecedero</option>
+														  <option value="Otro">Otro</option>
+														</select>									    
+												    <fieldset>
+												     	<input type="submit" name="Aceptar" value="Enviar" id="enviar">
+												    </fieldset>
+												 	</div>
+												</div>
+											</div>
+									
+										</section>
 						</article>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
