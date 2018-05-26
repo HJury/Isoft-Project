@@ -11,6 +11,7 @@
 include_once '../Logica/Administrador.php';
 include_once '../Logica/Cliente.php';
 include_once '../Logica/Perfil.php';
+include_once '../Logica/Fachada.php';
  
 	if($Acc == "Reg"){
 		if($Tipo == "Adm"){ // Se verifica si los datos ingresados medidante la interfaz son de un usuario tipo adminitrador. 
@@ -19,9 +20,9 @@ include_once '../Logica/Perfil.php';
 				$adm = new Administrador($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña);
 
 						if($adm->inDatos()){
-								echo "Todo bien Todo bien";
+								echo "El administrador fue registrado satisfactoriamente.";
 						}else{
-								echo "Nada de poder Hermano";
+								echo "Hubo un error al registrar cliente, verifique los datos.";
 						}
 
 				}
@@ -32,9 +33,9 @@ include_once '../Logica/Perfil.php';
 						$cli = new Cliente($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña);
 
 						if($cli->inDatos()){
-								echo "Todo bien Todo bien";
+								echo "El cliente fue registrado satisfactoriamente.";
 						}else{
-								echo "Nada de poder Hermano";
+								echo "Hubo un error al registrar cliente, verifique los datos.";
 						}
 
 				}
@@ -74,6 +75,14 @@ include_once '../Logica/Perfil.php';
 		//}else{
 			//	echo "Nada de poder Hermaano";
 		//}
+	}
+
+	if($Tipo =="TraD" ){
+		$fac = new Fachada();
+		$row = $fac->outHorario();
+
+		echo json_encode($row);
+
 	}
 ?>
 

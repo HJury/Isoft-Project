@@ -34,12 +34,17 @@ include_once 'Persistencia.php';
                 $Persi = new Persistencia();
                 $row = $Persi->verificarSesion($Perfil);
                  return $row;  
-
+        }
                 
              
+            public function outHorario(){
+                $Persi= new Persistencia();
+                $row = $Persi->outHorario();
+                return $row;
 
+             }
 
-        }
+        
 
 }
 

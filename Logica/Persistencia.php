@@ -35,10 +35,18 @@
     
       $EnlanceBD = mysql_connect(localhost, root, losimepeenelcadelavi) or die("No se conecta a la base de datos");
       mysql_select_db(isoft, $EnlanceBD) or die("No se puede seleccionar la BD");
+      $result = mysql_query("SELECT * from usuarios where Email='" . $Perfil->getEmail() . "'");
+      if($row = mysql_fetch_array($result)){
+      if($row['Email'] == $Email || $row['Cedula']){
 
       mysql_query("INSERT INTO usuarios VALUES('$Nombres', '$Apellido', '$Cedula', '$Contraseña', '$Email', '$Telefono', '$Tipo') ");
      return true;
-
+      }else{
+        return false;
+      }
+    }else{
+      return false; 
+    }
 
   }
 
@@ -47,7 +55,7 @@
   	mysql_connect('localhost','root','losimepeenelcadelavi') or die("Error al conectar " . mysql_error());
 	   mysql_select_db('isoft') or die ("Error al seleccionar la Base de datos: " . mysql_error()); //Conexión a la base de datos
 
-	$result = mysql_query("SELECT * from usuarios where Email='" . $Perfil->getEmail() . "'");
+	  $result = mysql_query("SELECT * from usuarios where Email='" . $Perfil->getEmail() . "'");
 
 	if($row = mysql_fetch_array($result)){
 	if($row['Contraseña'] == $Perfil->getContraseña()) {
@@ -66,8 +74,29 @@
 		  
 	}
 
+  }else{
+    return false;
   }
-} 
+}
+
+public function outHorario(){
+      mysql_connect('localhost','root','losimepeenelcadelavi') or die("Error al conectar " . mysql_error());
+      mysql_select_db('isoft') or die ("Error al seleccionar la Base de datos: " . mysql_error()); //Conexión a la base de datos
+
+        $result = mysql_query("SELECT * from horario ");
+        if($row = mysql_fetch_array($result)){
+           $Horario = $row['horario'];
+           
+           $array["Horario"]  = "$Horario";
+
+          return $array; 
+      
+
+        }else{
+          return false;
+        }
+}
+
 
 }
  

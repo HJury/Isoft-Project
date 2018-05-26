@@ -18,6 +18,9 @@
 		<meta content="What this page is about." name="description">
 		<meta content="Display Webcam Stream" name="title">
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
 
 	<script>
 		
@@ -33,17 +36,118 @@
 		}
 
 		//Calling function gerUrlVars to get value from url
-		function volar(){
+		function Ajustar(){
 		var Cedula = getUrlVars()["Cedula"];
 		var Email = getUrlVars()["Email"];
 
-		document.getElementById("sirve").innerHTML = Email; 
+		document.getElementById("sirve").innerHTML = Email;
+		$("#tabla").hide(); 
 	    }
+
+
+
+	 
+
 
 	</script>
 
+
+	<script>  //Scrip que permite el hacer visible la tabla con los horarios disponibles   	
+	    	$(document).ready(function(){
+			$("#enviar").click(function(){
+             var  tipo = "TraD";
+		 	$.post("Controlador.php",{Tip:tipo}, function(datos){ 
+	    	json = JSON.parse(datos);
+			 var Hor = json.Horario;
+			  
+			  	var tick = [], tock;
+		    var hashes = Hor.split(',');
+		    for(var i = 0; i < hashes.length; i++){
+		        tock = hashes[i].split('=');
+		      	tick.push(tock[0]);
+		        tick[tock[0]] = tock[1];
+		    }
+		     var Secuencia= "";
+		    for(var i=1; i < 55 ; i++){
+		    	Secuencia += tick[i];
+		    	
+		     }
+				$("#resultado").html(Secuencia);
+				$("#enviar").hide();
+				$("#VCar").hide();
+				$("#CSes").hide();
+				$("#resultado").hide();
+				$("#banner").hide();
+				$("#tabla").show();
+				//document.getElementById("enviar").type= 'hidden'; 
+			   });
+
+	    
+		  	//$("#resultado").html(json.Horario);
+
+			});
+		});
+
+	   
+
+
+
+
+
+
+	</script>
+
+
+
+	<script >
+
+		
+		function cambiar(celda){ 
+			var color1 = "";
+			if(color1=="#00fa9a"){
+
+				celda.style.backgroundColor=color1="#00fa9a";
+
+			}else{
+
+				celda.style.backgroundColor="#778899";
+				color1 = "#778899";
+
+			}
+
+
+			
+
+		}
+
+		/*$(document).ready(function(){
+    		$("#d1").click(function(){
+        		$("d1").sty;
+    		});
+		});*/
+
+	</script>
+
+	<script >
+
+		function estado(celda){ 
+		
+			
+
+		}
+
+		/*$(document).ready(function(){
+    		$("#d1").click(function(){
+        		$("d1").sty;
+    		});
+		});*/
+
+	</script>
+
+
+
 	</head>
-	<body onload="volar()">
+	<body onload="Ajustar()">
 
 
 		<!-- Page Wrapper -->
@@ -76,23 +180,125 @@
 				<!-- Main -->
 					<article id="main">
 						<section class="wrapper style5">
+							<table id = "tabla">
+
+									<tr>
+										<th>Hora\Día</th>
+									    <th>Lunes</th>
+										<th>Martes</th>
+										<th>Miércoles</th>
+									    <th>Jueves</th>
+									    <th>Viernes</th>
+									    <th>Sábado</th>
+									 </tr>
+									 <tr>
+									 	<td>8:00 am</td>
+									   	<td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d1"></td>
+
+									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d2"></td>
+									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d3"></td>
+									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d4"></td>
+									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d5"></td>
+									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d6"></td>
+									  </tr>
+									  <tr>
+									 	<td>9:00 am</td>
+									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d7"></td>
+									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d8"></td>
+									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d9"></td>
+									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d10"></td>
+									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d11"></td>
+									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d12"></td>
+									  </tr>
+									   <tr>
+									 	<td>10:00 am</td>
+									   	<td bgcolor="#00fa9a" id = "d13"></td>
+									    <td bgcolor="#00fa9a" id = "d14"></td>
+									    <td bgcolor="#00fa9a" id = "d15"></td>
+									    <td bgcolor="#00fa9a" id = "d16"></td>
+									    <td bgcolor="#00fa9a" id = "d17"></td>
+									    <td bgcolor="#00fa9a" id = "d18"></td>
+									  </tr>
+									   <tr>
+									 	<td>11:00 am</td>
+									   	<td bgcolor="#00fa9a" id = "d19"></td>
+									    <td bgcolor="#00fa9a" id = "d20"></td>
+									    <td bgcolor="#00fa9a" id = "d21"></td>
+									    <td bgcolor="#00fa9a" id = "d22"></td>
+									    <td bgcolor="#00fa9a" id = "d23"></td>
+									    <td bgcolor="#00fa9a" id = "d24"></td>
+									  </tr>
+									   <tr>
+									 	<td>1:00 pm</td>
+									   	<td bgcolor="#00fa9a" id = "d25"></td>
+									    <td bgcolor="#00fa9a" id = "d26"></td>
+									    <td bgcolor="#778899" id = "d27"></td>
+									    <td bgcolor="#00fa9a" id = "d28"></td>
+									    <td bgcolor="#00fa9a" id = "d29"></td>
+									    <td bgcolor="778899" id = "d30"></td>
+									  </tr>
+									   <tr>
+									 	<td>2:00 pm</td>
+									   	<td bgcolor="#00fa9a" id = "d31"></td>
+									    <td bgcolor="#00fa9a" id = "d32"></td>
+									    <td bgcolor="#00fa9a" id = "d33"></td>
+									    <td bgcolor="#00fa9a" id = "d34"></td>
+									    <td bgcolor="#00fa9a" id = "d35"></td>
+									    <td bgcolor="778899" id = "d36"></td>
+									  </tr>
+									   <tr>
+									 	<td>3:00 pm</td>
+									   	<td bgcolor="#00fa9a" id = "d37"></td>
+									    <td bgcolor="#00fa9a" id = "d38"></td>
+									    <td bgcolor="#00fa9a" id = "d39"></td>
+									    <td bgcolor="#00fa9a" id = "d40"></td>
+									    <td bgcolor="#00fa9a" id = "d41"></td>
+									    <td bgcolor="778899" id = "d42"></td>
+									  </tr>
+									   <tr>
+									 	<td>4:00 pm</td>
+									   	<td bgcolor="#00fa9a" id = "d43"></td>
+									    <td bgcolor="#00fa9a" id = "d44"></td>
+									    <td bgcolor="#00fa9a" id = "d45"></td>
+									    <td bgcolor="#00fa9a" id = "d46"></td>
+									    <td bgcolor="#00fa9a" id = "d47"></td>
+									    <td bgcolor="778899" id = "d48"></td>
+									  </tr>
+									   <tr>
+									 	<td>5:00 pm</td>
+									   	<td bgcolor="#00fa9a" id = "d49"></td>
+									    <td bgcolor="#00fa9a" id = "d50"></td>
+									    <td bgcolor="#00fa9a" id = "d51"></td>
+									    <td bgcolor="#00fa9a" id = "d52"></td>
+									    <td bgcolor="#00fa9a" id = "d53"></td>
+									    <td bgcolor="778899" id = "d54"></td>
+									  </tr>
+							</table>
 							<div>
 								<section id="banner">
-									<div name = "Principal">
+									<div  name = "Principal">
 									<h2>Bienvenido</h2> 
 										<ul class="actions">
-											<li><a href="Registrarse.html" class="button special">Gestionar horario</a></li>
+											<li><a id = "enviar" class="button special">Gestionar Horario</a></li>
 										</ul>
 										<ul class="actions">
-											<li><a href="Sesion.html" class="button special">Iniciar Sesión</a></li>
+											<li><a id = "VCar"  class="button special">Ver Estado De Carga</a></li>
 										</ul>
 										<ul class="actions">
-											<li><a href="Sesion.html" class="button special">Iniciar Sesión</a></li>
+											<li><a  id = "CSes" class="button special">Cerrar Sesión</a></li>
 										</ul>
+										<textarea  id="resultado" rows="4" cols="4"	"></textarea>
 									</div>
+
+
+
+										
 								</section>
 							</div>
 							</section>
+
+
+						
 						</article>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

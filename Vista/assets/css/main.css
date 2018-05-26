@@ -2186,6 +2186,7 @@
 	table {
 		margin: 0 0 2em 0;
 		width: 100%;
+
 	}
 
 		table tbody tr {
@@ -2207,7 +2208,16 @@
 			font-size: 0.9em;
 			font-weight: 600;
 			padding: 0 0.75em 0.75em 0.75em;
-			text-align: left;
+			text-align: center;
+		}
+
+		table tr {
+			
+			text-align: center;
+		}
+
+		table tr.active {
+			background: #778899;
 		}
 
 		table thead {
