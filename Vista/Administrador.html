@@ -41,7 +41,8 @@
 		var Email = getUrlVars()["Email"];
 
 		document.getElementById("sirve").innerHTML = Email;
-		$("#tabla").hide(); 
+		$("#tabla").hide();
+		$("#Done").hide(); 
 	    }
 
 
@@ -68,22 +69,27 @@
 		        tick[tock[0]] = tock[1];
 		    }
 		     var Secuencia= "";
-		    for(var i=1; i < 55 ; i++){
-		    	Secuencia += tick[i];
+		    for(var i=2; i <= 55 ; i++){
+		    	if(tick[i]==1){
+		    		document.getElementById("d"+(i-1)).style.backgroundColor ="rgb(119, 136, 155)";
+		    	}
 		    	
 		     }
+
+		     console.log(Secuencia);
 				$("#resultado").html(Secuencia);
 				$("#enviar").hide();
 				$("#VCar").hide();
 				$("#CSes").hide();
-				$("#resultado").hide();
+				//$("#resultado").hide();
 				$("#banner").hide();
 				$("#tabla").show();
+				$("#Done").show();
 				//document.getElementById("enviar").type= 'hidden'; 
 			   });
 
 	    
-		  	//$("#resultado").html(json.Horario);
+		  
 
 			});
 		});
@@ -103,15 +109,17 @@
 
 		
 		function cambiar(celda){ 
-			var color1 = "";
-			if(color1=="#00fa9a"){
 
-				celda.style.backgroundColor=color1="#00fa9a";
+			 
+			 
+			if( celda.style.backgroundColor == "rgb(0, 250, 154)"){
+
+				celda.style.backgroundColor="rgb(119, 136, 155)";
 
 			}else{
 
-				celda.style.backgroundColor="#778899";
-				color1 = "#778899";
+				celda.style.backgroundColor="rgb(0, 250, 154)"; //778899
+				
 
 			}
 
@@ -130,18 +138,50 @@
 
 	<script >
 
-		function estado(celda){ 
 		
-			
+		
+		$(document).ready(function(){
+            
+    		$("#Done").click(function(){
+    			var horario = "1=0,";
+    			for(var i = 1; i < 55 ; i++){
+    				if(document.getElementById("d"+i).style.backgroundColor == "rgb(119, 136, 155)" ){
+    					horario += ((i+1)+"=1,");
+		    			 
+		    			
 
-		}
+    			//document.getElementById("d"+1).style.backgroundColor= "rgb(119, 136, 155)";
+    		}else{
 
-		/*$(document).ready(function(){
-    		$("#d1").click(function(){
-        		$("d1").sty;
+        		horario += ((i+1)+"=0,");
+
+        	}
+    			//$("#d1").style.backgroundColor ="rgb(119, 136, 155)";
+        		//var diosito = $("tabla");
+
+        	}  	
+        	horario = horario.substring(0,horario.length-1);
+        	console.log(horario);
+
+        	$.post("Controlador.php",{Hor:horario}, function(datos){ 
+			  
+		        //console.log(Secuencia);
+				$("#resultado").html(datos);
+				$("#enviar").show();
+				$("#VCar").show();
+				$("#CSes").show();
+				//$("#resultado").hide();
+				$("#banner").show();
+				$("#tabla").hide();
+				$("#Done").hide();
+				//document.getElementById("enviar").type= 'hidden'; 
+			   });
     		});
-		});*/
+		});
 
+
+
+	
 	</script>
 
 
@@ -193,87 +233,90 @@
 									 </tr>
 									 <tr>
 									 	<td>8:00 am</td>
-									   	<td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d1"></td>
-
-									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d2"></td>
-									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d3"></td>
-									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d4"></td>
-									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d5"></td>
-									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d6"></td>
+									   	<td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);"  id = "d1"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);"  id = "d2"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);"  id = "d3"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);"  id = "d4"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d5"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d6"></td>
 									  </tr>
 									  <tr>
 									 	<td>9:00 am</td>
-									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d7"></td>
-									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d8"></td>
-									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d9"></td>
-									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d10"></td>
-									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d11"></td>
-									    <td onclick = "cambiar(this);estado(1);" bgcolor="#00fa9a" id = "d12"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d7"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d8"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d9"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d10"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d11"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d12"></td>
 									  </tr>
 									   <tr>
 									 	<td>10:00 am</td>
-									   	<td bgcolor="#00fa9a" id = "d13"></td>
-									    <td bgcolor="#00fa9a" id = "d14"></td>
-									    <td bgcolor="#00fa9a" id = "d15"></td>
-									    <td bgcolor="#00fa9a" id = "d16"></td>
-									    <td bgcolor="#00fa9a" id = "d17"></td>
-									    <td bgcolor="#00fa9a" id = "d18"></td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d13"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d14"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d15"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d16"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d17"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d18"></td>
 									  </tr>
 									   <tr>
 									 	<td>11:00 am</td>
-									   	<td bgcolor="#00fa9a" id = "d19"></td>
-									    <td bgcolor="#00fa9a" id = "d20"></td>
-									    <td bgcolor="#00fa9a" id = "d21"></td>
-									    <td bgcolor="#00fa9a" id = "d22"></td>
-									    <td bgcolor="#00fa9a" id = "d23"></td>
-									    <td bgcolor="#00fa9a" id = "d24"></td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d19"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d20"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d21"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d22"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d23"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d24"></td>
 									  </tr>
 									   <tr>
 									 	<td>1:00 pm</td>
-									   	<td bgcolor="#00fa9a" id = "d25"></td>
-									    <td bgcolor="#00fa9a" id = "d26"></td>
-									    <td bgcolor="#778899" id = "d27"></td>
-									    <td bgcolor="#00fa9a" id = "d28"></td>
-									    <td bgcolor="#00fa9a" id = "d29"></td>
-									    <td bgcolor="778899" id = "d30"></td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d25"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d26"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d27"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d28"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d29"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d30"></td>
 									  </tr>
 									   <tr>
 									 	<td>2:00 pm</td>
-									   	<td bgcolor="#00fa9a" id = "d31"></td>
-									    <td bgcolor="#00fa9a" id = "d32"></td>
-									    <td bgcolor="#00fa9a" id = "d33"></td>
-									    <td bgcolor="#00fa9a" id = "d34"></td>
-									    <td bgcolor="#00fa9a" id = "d35"></td>
-									    <td bgcolor="778899" id = "d36"></td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d31"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d32"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d33"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d34"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d35"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d36"></td>
 									  </tr>
 									   <tr>
 									 	<td>3:00 pm</td>
-									   	<td bgcolor="#00fa9a" id = "d37"></td>
-									    <td bgcolor="#00fa9a" id = "d38"></td>
-									    <td bgcolor="#00fa9a" id = "d39"></td>
-									    <td bgcolor="#00fa9a" id = "d40"></td>
-									    <td bgcolor="#00fa9a" id = "d41"></td>
-									    <td bgcolor="778899" id = "d42"></td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d37"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d38"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d39"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d40"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d41"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d42"></td>
 									  </tr>
 									   <tr>
 									 	<td>4:00 pm</td>
-									   	<td bgcolor="#00fa9a" id = "d43"></td>
-									    <td bgcolor="#00fa9a" id = "d44"></td>
-									    <td bgcolor="#00fa9a" id = "d45"></td>
-									    <td bgcolor="#00fa9a" id = "d46"></td>
-									    <td bgcolor="#00fa9a" id = "d47"></td>
-									    <td bgcolor="778899" id = "d48"></td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d43"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d44"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d45"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d46"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d47"></td>
+									    <td style = "background-color: rgb(0, 250, 154);  " onclick = "cambiar(this);" id = "d48"></td>
 									  </tr>
 									   <tr>
 									 	<td>5:00 pm</td>
-									   	<td bgcolor="#00fa9a" id = "d49"></td>
-									    <td bgcolor="#00fa9a" id = "d50"></td>
-									    <td bgcolor="#00fa9a" id = "d51"></td>
-									    <td bgcolor="#00fa9a" id = "d52"></td>
-									    <td bgcolor="#00fa9a" id = "d53"></td>
-									    <td bgcolor="778899" id = "d54"></td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d49"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d50"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d51"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d52"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d53"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d54"></td>
 									  </tr>
 							</table>
+
+							<div >
+											<li><a  id = "Done" class="button special">Aceptar</a></li>
+							</div>
 							<div>
 								<section id="banner">
 									<div  name = "Principal">
@@ -282,18 +325,19 @@
 											<li><a id = "enviar" class="button special">Gestionar Horario</a></li>
 										</ul>
 										<ul class="actions">
-											<li><a id = "VCar"  class="button special">Ver Estado De Carga</a></li>
+											<li><a id = "Vses"  class="button special">Ver Estado De Carga</a></li>
 										</ul>
 										<ul class="actions">
 											<li><a  id = "CSes" class="button special">Cerrar Sesión</a></li>
 										</ul>
-										<textarea  id="resultado" rows="4" cols="4"	"></textarea>
+										
 									</div>
 
 
 
 										
 								</section>
+								<textarea  id="resultado" rows="4" cols="4"	"></textarea>
 							</div>
 							</section>
 

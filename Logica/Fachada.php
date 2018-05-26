@@ -44,6 +44,17 @@ include_once 'Persistencia.php';
 
              }
 
+         public function modHorario($Hor){
+             $Persi= new Persistencia();
+             if($Persi->modHorario($Hor)){
+                return true;
+             }else{
+                return false;
+             }
+
+         }
+
+
         
 
 }

@@ -8,6 +8,7 @@
 	$Contraseña = $_POST['Cont'];
 	$Acc =$_POST['Acc'];
 	$Tipo = $_POST['Tip'];
+	$Hor = $_POST['Hor'];
 include_once '../Logica/Administrador.php';
 include_once '../Logica/Cliente.php';
 include_once '../Logica/Perfil.php';
@@ -83,6 +84,17 @@ include_once '../Logica/Fachada.php';
 
 		echo json_encode($row);
 
+	}
+
+
+	if($Hor != ""){
+		$adm = new Administrador($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña);
+		if($adm->modHorario($Hor)){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 ?>
 

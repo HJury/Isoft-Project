@@ -38,6 +38,19 @@
       
     }
 
+    public function modHorario($Hor){
+        $fac = new Fachada();
+        if($fac->modHorario($Hor)){
+
+            return true;
+        }else{
+            return false;
+        }
+
+        
+
+    }
+
 
     }
  

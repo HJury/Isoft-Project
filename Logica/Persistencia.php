@@ -97,8 +97,17 @@ public function outHorario(){
         }
 }
 
+public function modHorario($Hor){
+      mysql_connect('localhost','root','losimepeenelcadelavi') or die("Error al conectar " . mysql_error());
+      mysql_select_db('isoft') or die ("Error al seleccionar la Base de datos: " . mysql_error()); //Conexión a la base de datos
 
+         mysql_query("UPDATE horario SET  horario = ('$Hor') "); 
+        return true;
+
+        }
 }
+
+
  
  
 ?>
