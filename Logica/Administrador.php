@@ -1,13 +1,13 @@
 <?php
  include_once 'Persona.php'; 
- include_once 'Fachada.php'; 
+ include_once 'Agenda.php'; 
  include_once 'Perfil.php';
  class Administrador extends Persona{
  			//Atributos
 		public function __construct($Nombres, $Apellidos, $Cedula, $Email, $Telefono, $Contraseña){ 
       
      $this->Perfil = new Perfil($Contraseña,$Email);
-	 $this->nombres = $Nombres; 
+	   $this->nombres = $Nombres; 
      $this->cedula = $Cedula;
      $this->apellidos = $Apellidos;
      $this->telefono = $Telefono; 
@@ -15,32 +15,28 @@
         } 
 
     public function inDatos(){
-        $fac = new Fachada();
+        $age = new Agenda();
 
-        if($fac->inDaAdmin($this->nombres, $this->apellidos, $this->cedula, $this->Perfil->getEmail(), $this->telefono, $this->Perfil->getContraseña())){
+        if($age->inDaAdmin($this->nombres, $this->apellidos, $this->cedula, $this->Perfil->getEmail(), $this->telefono, $this->Perfil->getContraseña())){
             return true; 
         }else{
             return false;
         }
     }
 
-    public function inDaSes($Perfil){
-      $fac = new Fachada();
+    public function inDaSes(){
+      $age = new Agenda();
       
-       $row = $fac->inDaSes($Perfil);
+       $row = $age->inDaSes($this->Perfil);
 
         return $row;
      
-      /*}else{
-        return false;
-      }*/
-
       
     }
 
     public function modHorario($Hor){
-        $fac = new Fachada();
-        if($fac->modHorario($Hor)){
+        $Age = new Agenda();
+        if($Age->modHorario($Hor)){
 
             return true;
         }else{
@@ -48,14 +44,20 @@
         }
     }
 
-    public function inMercancia($Mer,$Cedula,$Nombres,$Pri){
-        $fac = new Fachada();
-        if($fac->inMercancia($Cedula,$Mer,$Nombres,$Pri)){
+    public function inMercancia($Cedula,$Mer,$Nombres,$Pri){
+        $mer = new Mercancia($Mer,$Nombres,$Cedula,$Pri);
+        $Age = new Agenda();
+        if($Age->inMercancia($mer)){                                                  
 
             return true;
         }else{
             return false;
         }
+    }
+
+    public function coEstado(){
+
+      
     }
 
 

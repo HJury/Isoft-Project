@@ -56,7 +56,7 @@
 
 	<script>  //Scrip que permite el hacer visible la tabla con los horarios disponibles   	
 	    	$(document).ready(function(){
-			$("#enviar").click(function(){
+			$("#pedido").click(function(){
              var  tipo = "TraD";
 		 	$.post("Controlador.php",{Tip:tipo}, function(datos){ 
 	    	json = JSON.parse(datos);
@@ -73,20 +73,18 @@
 		    for(var i=2; i <= 55 ; i++){
 		    	if(tick[i]==1){
 		    		document.getElementById("d"+(i-1)).style.backgroundColor ="rgb(119, 136, 155)";
+		    		
 		    	}
 		    	
 		     }
 
-		     console.log(Secuencia);
-				$("#resultado").html(Secuencia);
 				$("#enviar").hide();
 				$("#VCar").hide();
-				$("#CSes").hide();
-				//$("#resultado").hide();
+				$("#CSes").hide();	
 				$("#banner").hide();
 				$("#tabla").show();
 				$("#Done").show();
-				//document.getElementById("enviar").type= 'hidden'; 
+				
 			   });
 
 	    
@@ -101,9 +99,14 @@
 
 
 
-
 	</script>
 
+<script>
+	
+	function nada(){
+		
+	}
+</script>
 	<script>  //Scrip que permite el hacer visible la tabla con los horarios disponibles   	
 	    	$(document).ready(function(){
 			$("#IMer").click(function(){
@@ -114,10 +117,13 @@
 				$("#main").hide();
 				$("#main2").show();
 
-				//document.getElementById("enviar").type= 'hidden'; 
+				
 			   });
 			});
 	</script>
+
+
+
 
 	<script>
 		$(document).ready(function(){
@@ -134,7 +140,6 @@
 				}else{
 					console.log(prioridad);
 					$.post("Controlador.php",{Ced:cedulaP,Mer:idMerc,Nom:NombreM,Pri:prioridad}, function(datos){
-						$("#resultado").html(datos);
 					}); 
 				}
 			});
@@ -361,13 +366,13 @@
 									<div  name = "Principal">
 									<h2>Bienvenido</h2> 
 										<ul class="actions">
-											<li><a id = "enviar" class="button special">Gestionar Horario</a></li>
+											<li><a id = "pedido" class="button special">Hacer Pedido</a></li>
 										</ul>
 										<ul class="actions">
-											<li><a  id = "IMer" class="button special">Ingresar Mercancia</a></li>
+											<li><a  id = "IMer" class="button special">Consultar Estado De Pedidos</a></li>
 										</ul>
 										<ul class="actions">
-											<li><a id = "Vses"  class="button special">Ver Estado De Carga</a></li>
+											<li><a id = "Vses"  class="button special">Modificar Pedido  </a></li>
 										</ul>
 										<ul class="actions">
 											<li><a  id = "CSes" class="button special">Cerrar Sesión</a></li>
@@ -416,6 +421,8 @@
 									
 										</section>
 						</article>
+
+						
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
