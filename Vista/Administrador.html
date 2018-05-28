@@ -126,12 +126,18 @@
 				var cedulaP = parseInt($("#CeP").val());
 				var NombreM = $("#NomM").val();
 				var prioridad = $("#select").val();
-				if(idMerc==)
-				console.log(prioridad);
-			$.post("Controlador.php",{Ced:cedulaP,Mer:idMerc,Nom:NombreM,Pri:prioridad}, function(datos){ 
-				$("#resultado").html(datos);
+				if(idMerc == ""||
+					cedulaP == ""||
+					NombreM == ""||
+					prioridad == ""){
+					$("#resultado").html("Favor llenar todos los campos");
+				}else{
+					console.log(prioridad);
+					$.post("Controlador.php",{Ced:cedulaP,Mer:idMerc,Nom:NombreM,Pri:prioridad}, function(datos){
+						$("#resultado").html(datos);
+					}); 
+				}
 			});
-		});
 	});		
 	</script>
 
@@ -395,6 +401,7 @@
 												      	<input placeholder="Nombre Mercancia" type="text" id="NomM" name="NomM" tabindex="3" required>
 												    </fieldset>
 												    	<select id = "select">
+												          <option value=""></option>
 														  <option value="Perecedero">Perecedero</option>
 														  <option value="No Perecedero">No Perecedero</option>
 														  <option value="Otro">Otro</option>

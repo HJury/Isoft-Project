@@ -9,7 +9,7 @@ abstract class Persona{
 
 
   abstract public function inDatos();
-  abstract public function inDaSes($Perfil);
+  abstract public function inDaSes();
 }
  
 

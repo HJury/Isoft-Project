@@ -56,7 +56,11 @@
 
 	<script>  //Scrip que permite el hacer visible la tabla con los horarios disponibles   	
 	    	$(document).ready(function(){
+<<<<<<< HEAD
 			$("#enviar").click(function(){
+=======
+			$("#pedido").click(function(){
+>>>>>>> e205526ab52e9941a5c94660cc3a62cbebdf8078
              var  tipo = "TraD";
 		 	$.post("Controlador.php",{Tip:tipo}, function(datos){ 
 	    	json = JSON.parse(datos);
@@ -73,10 +77,15 @@
 		    for(var i=2; i <= 55 ; i++){
 		    	if(tick[i]==1){
 		    		document.getElementById("d"+(i-1)).style.backgroundColor ="rgb(119, 136, 155)";
+<<<<<<< HEAD
+=======
+		    		
+>>>>>>> e205526ab52e9941a5c94660cc3a62cbebdf8078
 		    	}
 		    	
 		     }
 
+<<<<<<< HEAD
 		     console.log(Secuencia);
 				$("#resultado").html(Secuencia);
 				$("#enviar").hide();
@@ -87,6 +96,15 @@
 				$("#tabla").show();
 				$("#Done").show();
 				//document.getElementById("enviar").type= 'hidden'; 
+=======
+				$("#enviar").hide();
+				$("#VCar").hide();
+				$("#CSes").hide();	
+				$("#banner").hide();
+				$("#tabla").show();
+				$("#Done").show();
+				
+>>>>>>> e205526ab52e9941a5c94660cc3a62cbebdf8078
 			   });
 
 	    
@@ -101,6 +119,7 @@
 
 
 
+<<<<<<< HEAD
 
 	</script>
 
@@ -111,10 +130,32 @@
 				$("#main2").show();
 
 				//document.getElementById("enviar").type= 'hidden'; 
+=======
+	</script>
+
+<script>
+	
+	function nada(){
+		
+	}
+</script>
+	<script>  //Scrip que permite el hacer visible la tabla con los horarios disponibles   	
+	    	$(document).ready(function(){
+			$("#IMer").click(function(){
+            
+
+		     //console.log(Secuencia);
+				//$("#resultado").html(Secuencia);
+				$("#main").hide();
+				$("#main2").show();
+
+				
+>>>>>>> e205526ab52e9941a5c94660cc3a62cbebdf8078
 			   });
 			});
 	</script>
 
+<<<<<<< HEAD
 	<script>  //Scrip que permite el hacer visible la tabla con los horarios disponibles   	
 	    	$(document).ready(function(){
 			$("#pedido").click(function(){
@@ -125,6 +166,10 @@
 			   });
 			});
 	</script>
+=======
+
+
+>>>>>>> e205526ab52e9941a5c94660cc3a62cbebdf8078
 
 	<script>
 		$(document).ready(function(){
@@ -133,12 +178,26 @@
 				var cedulaP = parseInt($("#CeP").val());
 				var NombreM = $("#NomM").val();
 				var prioridad = $("#select").val();
+<<<<<<< HEAD
 				if(idMerc==)
 				console.log(prioridad);
 			$.post("Controlador.php",{Ced:cedulaP,Mer:idMerc,Nom:NombreM,Pri:prioridad}, function(datos){ 
 				$("#resultado").html(datos);
 			});
 		});
+=======
+				if(idMerc == ""||
+					cedulaP == ""||
+					NombreM == ""||
+					prioridad == ""){
+					$("#resultado").html("Favor llenar todos los campos");
+				}else{
+					console.log(prioridad);
+					$.post("Controlador.php",{Ced:cedulaP,Mer:idMerc,Nom:NombreM,Pri:prioridad}, function(datos){
+					}); 
+				}
+			});
+>>>>>>> e205526ab52e9941a5c94660cc3a62cbebdf8078
 	});		
 	</script>
 
@@ -223,6 +282,7 @@
 
 	
 	</script>
+<<<<<<< HEAD
 	<script>
 		$(document).ready(function(){
 			$("#Aceptar").click(function(){
@@ -266,6 +326,9 @@
     		});
 
 	</script>
+=======
+
+>>>>>>> e205526ab52e9941a5c94660cc3a62cbebdf8078
 
 
 	</head>
@@ -404,6 +467,7 @@
 									<div  name = "Principal">
 									<h2>Bienvenido</h2> 
 										<ul class="actions">
+<<<<<<< HEAD
 											<li><a id = "pedido" class="button special">Realizar Pedido</a></li>
 										</ul>
 										<ul class="actions">
@@ -411,6 +475,15 @@
 										</ul>
 										<ul class="actions">
 											<li><a id = "Vses"  class="button special">Ver Estado De Carga</a></li>
+=======
+											<li><a id = "pedido" class="button special">Hacer Pedido</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a  id = "IMer" class="button special">Consultar Estado De Pedidos</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a id = "Vses"  class="button special">Modificar Pedido  </a></li>
+>>>>>>> e205526ab52e9941a5c94660cc3a62cbebdf8078
 										</ul>
 										<ul class="actions">
 											<li><a  id = "CSes" class="button special">Cerrar Sesión</a></li>
@@ -427,6 +500,7 @@
 						</article>
 						<article id="main2">
 										<header>
+<<<<<<< HEAD
 											<h2>Realizar pedido</h2>
 										</header>
 										
@@ -556,6 +630,14 @@
 
 											
 												<!--<div class="container">  
+=======
+											<h2>Registrar Mercancia</h2>
+										</header>
+										<section class="wrapper style5" id="banner2">
+											<div class="inner">
+											
+												<div class="container">  
+>>>>>>> e205526ab52e9941a5c94660cc3a62cbebdf8078
 												  	<div id="contact" >
 												    <fieldset>
 								      					<input placeholder="Id Mercancia" type="text" id="IdM" name="IdM" tabindex="1" required>
@@ -567,6 +649,10 @@
 												      	<input placeholder="Nombre Mercancia" type="text" id="NomM" name="NomM" tabindex="3" required>
 												    </fieldset>
 												    	<select id = "select">
+<<<<<<< HEAD
+=======
+												          <option value=""></option>
+>>>>>>> e205526ab52e9941a5c94660cc3a62cbebdf8078
 														  <option value="Perecedero">Perecedero</option>
 														  <option value="No Perecedero">No Perecedero</option>
 														  <option value="Otro">Otro</option>
@@ -577,10 +663,19 @@
 												    </fieldset>
 												 	</div>
 												</div>
+<<<<<<< HEAD
 											</div>-->
 									
 								</section>
 						</article>
+=======
+											</div>
+									
+										</section>
+						</article>
+
+						
+>>>>>>> e205526ab52e9941a5c94660cc3a62cbebdf8078
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
