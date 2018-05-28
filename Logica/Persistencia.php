@@ -19,14 +19,27 @@
 
   }
     public function inDaAdmin($Nombres, $Apellido, $Cedula, $Email, $Telefono, $Contraseña){
-      $Tipo = "Administrador";
+   $Tipo = "Administrador";
     
-      $EnlanceBD = mysql_connect(localhost, root, losimepeenelcadelavi) or die("No se conecta a la base de datos");
-      mysql_select_db(isoft, $EnlanceBD) or die("No se puede seleccionar la BD");
+      $EnlanceBD = mysql_connect('localhost', 'root', 'losimepeenelcadelavi') or die("No se conecta a la base de datos");
+      mysql_select_db('isoft', $EnlanceBD) or die("No se puede seleccionar la BD");
 
-      mysql_query("INSERT INTO usuarios VALUES('$Nombres', '$Apellido', '$Cedula', '$Contraseña', '$Email', '$Telefono', '$Tipo') ");
-     return true;
-
+      $result = mysql_query("SELECT * from usuarios where Email='" . $Email . "'");  
+      $row = mysql_fetch_array($result);
+      if($row['Email'] != $Email){
+          $result = mysql_query("SELECT * from usuarios where Cedula='" . $Cedula . "'");
+          $row = mysql_fetch_array($result); 
+           if($row['Cedula'] != $Cedula){
+           mysql_query("INSERT INTO usuarios VALUES('$Nombres', '$Apellido', '$Cedula', '$Contraseña', '$Email', '$Telefono', '$Tipo') ");
+           return true;
+          }else{
+            return false;
+           
+      //  }
+          }
+    }else{
+      return false; 
+   }
 
   }
 
@@ -113,11 +126,21 @@ public function modHorario($Hor){
 
 
 public function inMercancia($Cedula,$Mer,$Nombres,$Pri){
-      $EnlanceBD = mysql_connect(localhost, root, losimepeenelcadelavi) or die("No se conecta a la base de datos");
-      mysql_select_db(isoft, $EnlanceBD) or die("No se puede seleccionar la BD");
 
-      mysql_query("INSERT INTO mercancia VALUES('$Cedula', '$Mer', '$Nombres', '$Pri') ");
-     return true;
+    $EnlanceBD = mysql_connect('localhost', 'root', 'losimepeenelcadelavi') or die("No se conecta a la base de datos");
+      mysql_select_db('isoft', $EnlanceBD) or die("No se puede seleccionar la BD");
+
+      $result = mysql_query("SELECT * from mercancia where id='" . $Mer . "'");  
+      $row = mysql_fetch_array($result);
+      if($row['id'] != $Mer){ 
+           
+            mysql_query("INSERT INTO mercancia VALUES('$Cedula', '$Mer', '$Nombres', '$Pri') ");
+           return true;
+         
+    }else{
+      return false; 
+   }
+
 }
 
 }
