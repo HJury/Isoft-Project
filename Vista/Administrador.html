@@ -104,6 +104,8 @@
 
 	</script>
 
+
+
 	<script>  //Scrip que permite el hacer visible la tabla con los horarios disponibles   	
 	    	$(document).ready(function(){
 			$("#IMer").click(function(){
@@ -113,6 +115,21 @@
 				//$("#resultado").html(Secuencia);
 				$("#main").hide();
 				$("#main2").show();
+
+				//document.getElementById("enviar").type= 'hidden'; 
+			   });
+			});
+	</script>
+
+	<script>  //Scrip que permite el hacer visible la tabla con los horarios disponibles   	
+	    	$(document).ready(function(){
+			$("#Terminar").click(function(){
+            
+
+		     //console.log(Secuencia);
+				//$("#resultado").html(Secuencia);
+				$("#main").show();
+				$("#main2").hide();
 
 				//document.getElementById("enviar").type= 'hidden'; 
 			   });
@@ -130,11 +147,20 @@
 					cedulaP == ""||
 					NombreM == ""||
 					prioridad == ""){
-					$("#resultado").html("Favor llenar todos los campos");
+					alert("Asegurese de rellenar todos los campos");
 				}else{
-					console.log(prioridad);
+					
 					$.post("Controlador.php",{Ced:cedulaP,Mer:idMerc,Nom:NombreM,Pri:prioridad}, function(datos){
-						$("#resultado").html(datos);
+						if(datos == 1){
+						alert("La mercancia fue registrada exitosamente");
+						$("#Nombres").val('');
+							$("#IdM").val('');
+							$("#CeP").val('');
+							$("#NomM").val('');
+							
+					}else{
+					alert("Puede que la mercancia ya este registrada, confirme los datos por favor");
+				    }
 					}); 
 				}
 			});
@@ -205,7 +231,7 @@
         	$.post("Controlador.php",{Hor:horario}, function(datos){ 
 			  
 		        //console.log(Secuencia);
-				$("#resultado").html(datos);
+				
 				$("#enviar").show();
 				$("#VCar").show();
 				$("#CSes").show();
@@ -241,10 +267,12 @@
 
 										<div id="menu">
 											<ul>
-												<li><a href="index.html">Home</a></li>
-												<li><a id = "Gestionar Horario"> Gestionar Horario</a></li>
-												<li><a href="Sesion.html">Ver Estado De Carga</a></li>
-												<li><a href="Acerca.html">Cerrar Sesión</a></li>
+												<li><a href="Administrador.html" >Home</a></li>
+												<li><a id = "enviar2"> Gestionar Horario</a></li>
+												<li><a >Ingresar Mercancia</a></li>
+												<li><a >Registrar conductor</a></li>
+												<li><a >Ver Estado De Carga</a></li>
+												<li><a href="index.html">Cerrar Sesión</a></li>
 											</ul>
 										</div>
 									</li>
@@ -367,6 +395,9 @@
 											<li><a  id = "IMer" class="button special">Ingresar Mercancia</a></li>
 										</ul>
 										<ul class="actions">
+											<li><a  id = "RegC" class="button special">Registrar Coductor</a></li>
+										</ul>
+										<ul class="actions">
 											<li><a id = "Vses"  class="button special">Ver Estado De Carga</a></li>
 										</ul>
 										<ul class="actions">
@@ -408,7 +439,8 @@
 														</select>									    
 												    <fieldset>
 												     	<input type="submit" name="Aceptar" value="Enviar" id="Aceptar">
-												     	<textarea  id="resultado" rows="4" cols="4"	"></textarea>
+												     	<input type="submit" name="Aceptar" value="Terminar" id="Terminar">
+												
 												    </fieldset>
 												 	</div>
 												</div>

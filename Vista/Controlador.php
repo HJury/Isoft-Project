@@ -84,10 +84,10 @@ include_once '../Logica/Mercancia.php'; //Se importan los documentos que contien
 	if($Mer != ""){  //Efecución de la función encargada de enviar datos de la mercancia por parte del administrador
 		$fac = new Fachada();
 		if($fac->inMercancia($Cedula,$Mer,$Nombres,$Pri)){
-			return true;
+			echo 1;
 		}
 		else{
-			return false;
+			echo 0;
 		}
 	}
 ?>

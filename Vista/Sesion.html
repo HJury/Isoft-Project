@@ -39,20 +39,13 @@
 					if(Tipo == "Administrador"){
 					 location.href = "Administrador.html?Cedula="+Cedula+ "&Email="+Email;
 
-					}else{ 
+					}else if(Tipo == "Cliente"){ 
 						location.href = "Cliente.html?Cedula="+Cedula+ "&Email="+Email;
 					 //location.href = "Admin.html?Cedula="+Cedula+ "&Email="+Email;
+					}else{
+						alert("Por favor verifique que los datos ingresador este correctamente digitados");
 					}
-					//if(datos == 0){
-						
 
-					//	//location.href = "Acerca.html";
-					//}else{
-					//	$("#resultado").html(datos);
-					//}
-
-
-					//
 				});
 			}
 
@@ -107,7 +100,6 @@
 								    <fieldset>
 								     <input type="submit" name="enviar" value="Enviar" id="enviar">
 								    </fieldset>
-									<textarea id="resultado" rows="4" cols="50	"></textarea>
 								    
 								 	</div>
 								</div>

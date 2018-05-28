@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Centinela Virtual</title>
+		<title>SAT</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -37,25 +37,41 @@
 					Telefono == "" ||
 					email == "" ||
 					pass == ""){
-					$("#resultado").html("Favor llenar todos los campos");
+					alert("Por favor verifique que la llave de administrador este correctamente digitada o deje el campo vacio si pretende registrarse como cliente");
 				}else{
 
 				if(Lla != ""){
 					if(parseInt(Lla) == 1234){
 						tipo = "Adm"; 
 						    $.post("Controlador.php",{Nom:nombre, Ape:apellido, Ced:cedula, Ema:email, Tel:Telefono, Cont:pass, Acc: acc, Tip:tipo}, function(datos){
-							  $("#resultado").html(datos);
+							 alert(datos);
+							$("#Nombres").val('');
+							$("#Apellidos").val('');
+							$("#Cedula").val('');
+							$("#Telefono").val('');
+							$("#Email").val('');
+							$("#Contraseña").val('');
+							$('#llaveAdmi').val('');
+
 						    });
 				    }else{
-				    	$("#resultado").html("Por favor verifique que la llave de administrador este correctamente digitada o deje el campo vacio si pretende registrarse como cliente");
+				    	alert("Por favor verifique que la llave de administrador este correctamente digitada o deje el campo vacio si pretende registrarse como cliente");
+				    
 				    }
 
 
 			    }else{
 			    		tipo = "Cli";
 				    	$.post("Controlador.php",{Nom:nombre, Ape:apellido, Ced:cedula, Ema:email, Tel:Telefono, Cont:pass, Acc: acc, Tip:tipo}, function(datos){
-							  $("#resultado").html(datos);
-
+							  alert(datos);
+							  document.getElementsByTagName('Nombres').value = "";
+							$("#Nombres").val('');
+							$("#Apellidos").val('');
+							$("#Cedula").val('');
+							$("#Telefono").val('');
+							$("#Email").val('');
+							$("#Contraseña").val('');
+							$('#llaveAdmi').val('');
 						    });
 
 				    }
@@ -78,7 +94,7 @@
 				<!-- Header -->
 					<header id="header">
 
-						<h1><a href="index.html">Centinela Virtual</a></h1>
+						<h1><a href="index.html">SAT</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
@@ -99,7 +115,7 @@
 				<!-- Main -->
 					<article id="main">
 						<header>
-							<h2>Centinela Virtual</h2>
+							<h2>SAT</h2>
 						</header>
 						<section class="wrapper style5">
 							<div class="inner">
@@ -135,7 +151,7 @@
 								   	<fieldset>
 								      <input type="submit" name="enviar" value="Enviar" id="enviar">
 								    </fieldset>
-								    <textarea id="resultado" rows="4" cols="50	"></textarea>
+								   
 								 	<!--</form>--> 
 								 	
 								</div>
