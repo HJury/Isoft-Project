@@ -1,0 +1,594 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Centinela Virtual</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<meta charset="utf-8">
+		<meta content="stuff, to, help, search, engines, not" name="keywords">
+		<meta content="What this page is about." name="description">
+		<meta content="Display Webcam Stream" name="title">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
+
+	<script>
+		
+		function getUrlVars(){   
+		    var vars = [], hash;
+		    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		    for(var i = 0; i < hashes.length; i++){
+		        hash = hashes[i].split('=');
+		        vars.push(hash[0]);
+		        vars[hash[0]] = hash[1];
+		    }
+		    return vars;
+		}
+
+		//Calling function gerUrlVars to get value from url
+		function Ajustar(){
+		var Cedula = getUrlVars()["Cedula"];
+		var Email = getUrlVars()["Email"];
+
+		document.getElementById("sirve").innerHTML = Email;
+		$("#tabla").hide();
+		$("#Done").hide();
+		$("#main2").hide(); 
+	    }
+
+
+
+	 
+
+
+	</script>
+
+
+	<script>  //Scrip que permite el hacer visible la tabla con los horarios disponibles   	
+	    	$(document).ready(function(){
+			$("#enviar").click(function(){
+             var  tipo = "TraD";
+		 	$.post("Controlador.php",{Tip:tipo}, function(datos){ 
+	    	json = JSON.parse(datos);
+			 var Hor = json.Horario;
+			  
+			  	var tick = [], tock;
+		    var hashes = Hor.split(',');
+		    for(var i = 0; i < hashes.length; i++){
+		        tock = hashes[i].split('=');
+		      	tick.push(tock[0]);
+		        tick[tock[0]] = tock[1];
+		    }
+		     var Secuencia= "";
+		    for(var i=2; i <= 55 ; i++){
+		    	if(tick[i]==1){
+		    		document.getElementById("d"+(i-1)).style.backgroundColor ="rgb(119, 136, 155)";
+		    	}
+		    	
+		     }
+
+		     console.log(Secuencia);
+				$("#resultado").html(Secuencia);
+				$("#enviar").hide();
+				$("#VCar").hide();
+				$("#CSes").hide();
+				//$("#resultado").hide();
+				$("#banner").hide();
+				$("#tabla").show();
+				$("#Done").show();
+				//document.getElementById("enviar").type= 'hidden'; 
+			   });
+
+	    
+		  
+
+			});
+		});
+
+	   
+
+
+
+
+
+
+	</script>
+
+	<script>  //Scrip que permite el hacer visible la tabla con los horarios disponibles   	
+	    	$(document).ready(function(){
+			$("#IMer").click(function(){
+				$("#main").hide();
+				$("#main2").show();
+
+				//document.getElementById("enviar").type= 'hidden'; 
+			   });
+			});
+	</script>
+
+	<script>  //Scrip que permite el hacer visible la tabla con los horarios disponibles   	
+	    	$(document).ready(function(){
+			$("#pedido").click(function(){
+				$("#main").hide();
+				$("#main2").show();
+
+				//document.getElementById("enviar").type= 'hidden'; 
+			   });
+			});
+	</script>
+
+	<script>
+		$(document).ready(function(){
+			$("#Aceptar").click(function(){
+				var idMerc = $("#IdM").val();
+				var cedulaP = parseInt($("#CeP").val());
+				var NombreM = $("#NomM").val();
+				var prioridad = $("#select").val();
+				if(idMerc==)
+				console.log(prioridad);
+			$.post("Controlador.php",{Ced:cedulaP,Mer:idMerc,Nom:NombreM,Pri:prioridad}, function(datos){ 
+				$("#resultado").html(datos);
+			});
+		});
+	});		
+	</script>
+
+	<!--Esta funcion se encarga de cambiar el color de las celdas cuando se le da click -->
+	<script >
+
+		
+		function cambiar(celda){ 
+
+			 
+			 
+			if( celda.style.backgroundColor == "rgb(0, 250, 154)"){
+
+				celda.style.backgroundColor="rgb(119, 136, 155)";
+
+			}else{
+
+				celda.style.backgroundColor="rgb(0, 250, 154)"; //778899
+				
+
+			}
+
+
+			
+
+		}
+
+		/*$(document).ready(function(){
+    		$("#d1").click(function(){
+        		$("d1").sty;
+    		});
+		});*/
+
+	</script>
+
+
+	<!-- Crea la variable horario encargada de guardar el estado del horario en la base de datos-->
+	<script >
+
+		
+		
+		$(document).ready(function(){
+            
+    		$("#Done").click(function(){
+    			var horario = "1=0,";
+    			for(var i = 1; i < 55 ; i++){
+    				if(document.getElementById("d"+i).style.backgroundColor == "rgb(119, 136, 155)" ){
+    					horario += ((i+1)+"=1,");
+		    			 
+		    			
+
+    			//document.getElementById("d"+1).style.backgroundColor= "rgb(119, 136, 155)";
+    		}else{
+
+        		horario += ((i+1)+"=0,");
+
+        	}
+    			//$("#d1").style.backgroundColor ="rgb(119, 136, 155)";
+        		//var diosito = $("tabla");
+
+        	}  	
+        	horario = horario.substring(0,horario.length-1);
+        	console.log(horario);
+
+        	$.post("Controlador.php",{Hor:horario}, function(datos){ 
+			  
+		        //console.log(Secuencia);
+				$("#resultado").html(datos);
+				$("#enviar").show();
+				$("#VCar").show();
+				$("#CSes").show();
+				//$("#resultado").hide();
+				$("#banner").show();
+				$("#tabla").hide();
+				$("#Done").hide();
+				//document.getElementById("enviar").type= 'hidden'; 
+			   });
+    		});
+		}); //Trae los valores del horario desde la base de datos
+
+
+
+	
+	</script>
+	<script>
+		$(document).ready(function(){
+			$("#Aceptar").click(function(){
+			    function addRow(col1Text, col1Width, 
+			                    col2Text, col2Width, 
+			                    col3Text, col3Width) {
+			        if (!document.getElementsByTagName) {
+			            return;
+			        }
+			        var x = document.getElementById("entries").rows.length;
+			        tabBody=document.getElementsByTagName("tbody").item(0);
+			        row=document.createElement("tr");
+			        row.id=x;
+			        cell1 = document.createElement("td");
+			        cell2 = document.createElement("td");
+			        cell3 = document.createElement("td");
+			        cell1.width=col1Width+"px";
+			        cell2.width=col2Width+"px";
+			        cell3.width=col3Width+"px";
+			        textnode1=document.createTextNode(col1Text);
+			        textnode2=document.createTextNode(col2Text);
+			        textnode3=document.createTextNode(col3Text);
+			        cell1.appendChild(textnode1);
+			        cell2.appendChild(textnode2);
+			        cell3.appendChild(textnode3);
+			        row.appendChild(cell1);
+			        row.appendChild(cell2);
+			        row.appendChild(cell3);
+			        tabBody.appendChild(row);
+			        tableHighlightRow();
+			    }
+
+			    window.onload=function(){
+			        for ( r = 0; r < 25; r++ ) {
+			            addRow( r+",1", 200, // 200px width 
+			                    r+",2", 200, 
+			                    r+",3", 200);
+			        }
+			    }
+			     });
+    		});
+
+	</script>
+
+
+	</head>
+	<body onload="Ajustar()">
+
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+				<header id= "header">
+				<h1><a id = "sirve"></a></h1>
+						<nav id="nav">
+								<ul>
+									
+									<li class="special">
+										<a href="#menu" class="menuToggle"><span>Menu</span></a>
+
+										<div id="menu">
+											<ul>
+												<li><a href="index.html">Home</a></li>
+												<li><a id = "Gestionar Horario"> Gestionar Horario</a></li>
+												<li><a href="Sesion.html">Ver Estado De Carga</a></li>
+												<li><a href="Acerca.html">Cerrar Sesión</a></li>
+											</ul>
+										</div>
+									</li>
+
+								</ul>
+						</nav>
+					
+				</header>
+				<!-- Header -->
+
+
+				<!-- Main -->
+					<article id="main">
+						<section class="wrapper style5">
+							<table id = "tabla">
+
+									<tr>
+										<th>Hora\Día</th>
+									    <th>Lunes</th>
+										<th>Martes</th>
+										<th>Miércoles</th>
+									    <th>Jueves</th>
+									    <th>Viernes</th>
+									    <th>Sábado</th>
+									 </tr>
+									 <tr>
+									 	<td>8:00 am</td>
+									   	<td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);"  id = "d1"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);"  id = "d2"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);"  id = "d3"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);"  id = "d4"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d5"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d6"></td>
+									  </tr>
+									  <tr>
+									 	<td>9:00 am</td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d7"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d8"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d9"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d10"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d11"></td>
+									    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d12"></td>
+									  </tr>
+									   <tr>
+									 	<td>10:00 am</td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d13"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d14"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d15"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d16"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d17"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d18"></td>
+									  </tr>
+									   <tr>
+									 	<td>11:00 am</td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d19"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d20"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d21"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d22"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d23"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d24"></td>
+									  </tr>
+									   <tr>
+									 	<td>1:00 pm</td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d25"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d26"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d27"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d28"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d29"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d30"></td>
+									  </tr>
+									   <tr>
+									 	<td>2:00 pm</td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d31"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d32"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d33"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d34"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d35"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d36"></td>
+									  </tr>
+									   <tr>
+									 	<td>3:00 pm</td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d37"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d38"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d39"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d40"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d41"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d42"></td>
+									  </tr>
+									   <tr>
+									 	<td>4:00 pm</td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d43"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d44"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d45"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d46"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d47"></td>
+									    <td style = "background-color: rgb(0, 250, 154);  " onclick = "cambiar(this);" id = "d48"></td>
+									  </tr>
+									   <tr>
+									 	<td>5:00 pm</td>
+									   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d49"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d50"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d51"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d52"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d53"></td>
+									    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d54"></td>
+									  </tr>
+							</table>
+
+							<div >
+											<li><a  id = "Done" class="button special">Aceptar</a></li>
+							</div>
+							<div>
+								<section id="banner">
+									<div  name = "Principal">
+									<h2>Bienvenido</h2> 
+										<ul class="actions">
+											<li><a id = "pedido" class="button special">Realizar Pedido</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a  id = "IMer" class="button special">Ingresar Mercancia</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a id = "Vses"  class="button special">Ver Estado De Carga</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a  id = "CSes" class="button special">Cerrar Sesión</a></li>
+										</ul>
+										
+									</div>
+								</section>
+							<!--<textarea  id="resultado" rows="4" cols="4"	"></textarea>-->
+							</div>
+							</section>
+
+
+						
+						</article>
+						<article id="main2">
+										<header>
+											<h2>Realizar pedido</h2>
+										</header>
+										
+
+										<section class="wrapper style5" id="banner2">
+											<div class="inner">
+												<section>
+													<h3>Seleccionar horario entrega</h3>
+													<table id = "tabla">
+
+													<tr>
+														<th>Hora\Día</th>
+													    <th>Lunes</th>
+														<th>Martes</th>
+														<th>Miércoles</th>
+													    <th>Jueves</th>
+													    <th>Viernes</th>
+													    <th>Sábado</th>
+													 </tr>
+													 <tr>
+													 	<td>8:00 am</td>
+													   	<td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);"  id = "d1"></td>
+													    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);"  id = "d2"></td>
+													    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);"  id = "d3"></td>
+													    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);"  id = "d4"></td>
+													    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d5"></td>
+													    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d6"></td>
+													  </tr>
+													  <tr>
+													 	<td>9:00 am</td>
+													    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d7"></td>
+													    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d8"></td>
+													    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d9"></td>
+													    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d10"></td>
+													    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d11"></td>
+													    <td  style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d12"></td>
+													  </tr>
+													   <tr>
+													 	<td>10:00 am</td>
+													   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d13"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d14"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d15"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d16"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d17"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d18"></td>
+													  </tr>
+													   <tr>
+													 	<td>11:00 am</td>
+													   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d19"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d20"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d21"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d22"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d23"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d24"></td>
+													  </tr>
+													   <tr>
+													 	<td>1:00 pm</td>
+													   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d25"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d26"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d27"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d28"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d29"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d30"></td>
+													  </tr>
+													   <tr>
+													 	<td>2:00 pm</td>
+													   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d31"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d32"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d33"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d34"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d35"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d36"></td>
+													  </tr>
+													   <tr>
+													 	<td>3:00 pm</td>
+													   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d37"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d38"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d39"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d40"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d41"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d42"></td>
+													  </tr>
+													   <tr>
+													 	<td>4:00 pm</td>
+													   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d43"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d44"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d45"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d46"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d47"></td>
+													    <td style = "background-color: rgb(0, 250, 154);  " onclick = "cambiar(this);" id = "d48"></td>
+													  </tr>
+													   <tr>
+													 	<td>5:00 pm</td>
+													   	<td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d49"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d50"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d51"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d52"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d53"></td>
+													    <td style = "background-color: rgb(0, 250, 154); " onclick = "cambiar(this);" id = "d54"></td>
+													  </tr>
+											</table>
+
+
+												</section>
+												<section>
+													<h3>Seleccionar mercancia</h3>
+													<table class="TableListJS" id="tabla2">
+														    <thead>
+														        <tr>
+														           <td width='200px'>Id Mercancia</td>
+														           <td width='200px'>Nombre mercancia</td>
+														           <td width='200px'>Prioridad</td>
+														        </tr>
+														    </thead>
+														    <tbody>
+														        <tr>
+														            <td width='200px'>Entry 1</td>
+														            <td width='200px'>Entry 2</td>
+														            <td width='200px'>Entry 3</td>
+														        </tr>
+														    </tbody>
+														</table> 
+														<ul class="actions">
+															<li><a id = "guardar" class="button special">Guardar cambios</a></li>
+														</ul>
+												</section>
+
+											
+												<!--<div class="container">  
+												  	<div id="contact" >
+												    <fieldset>
+								      					<input placeholder="Id Mercancia" type="text" id="IdM" name="IdM" tabindex="1" required>
+								    				</fieldset>
+								     				<fieldset>
+												      	<input placeholder="Cedula Propietario" type="text" id="CeP" name="CeP" tabindex="2" required>
+												    </fieldset>
+												    <fieldset>
+												      	<input placeholder="Nombre Mercancia" type="text" id="NomM" name="NomM" tabindex="3" required>
+												    </fieldset>
+												    	<select id = "select">
+														  <option value="Perecedero">Perecedero</option>
+														  <option value="No Perecedero">No Perecedero</option>
+														  <option value="Otro">Otro</option>
+														</select>									    
+												    <fieldset>
+												     	<input type="submit" name="Aceptar" value="Enviar" id="Aceptar">
+												     	<textarea  id="resultado" rows="4" cols="4"	"></textarea>
+												    </fieldset>
+												 	</div>
+												</div>
+											</div>-->
+									
+								</section>
+						</article>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
